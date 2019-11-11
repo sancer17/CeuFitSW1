@@ -9,7 +9,6 @@ package clases;
 //hola3
 //kaiso4
 //vasco
-//La españa programadora
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
