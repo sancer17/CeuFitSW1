@@ -4,19 +4,14 @@
  * and open the template in the editor.
  */
 package clases;
-//hola
-//hola2
-//hola3
-//kaiso4
-//vasco
-//kike
-//kike2
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.InitialContext;
@@ -90,6 +85,7 @@ public class mostrarInformacion extends HttpServlet {
         ResultSet resultSet2 = null;
         Statement statement = null;
         Connection connection = null;
+        ArrayList comentarios = new ArrayList();
         try {
             connection = datasource.getConnection();
             System.out.println(query1);
@@ -98,8 +94,9 @@ public class mostrarInformacion extends HttpServlet {
             resultSet2 = statement.executeQuery(query2);
 
             while (resultSet2.next()) {
-                request.setAttribute("comentarios", resultSet2.getString(1));
+                comentarios.add(resultSet2.getString(1));                
             }
+            request.setAttribute("comentarios", comentarios);
 //            response.setContentType("text/html;charset=UTF-8");
 //            try (PrintWriter out = response.getWriter()) {
 //                out.println(resultSet.getString(1));

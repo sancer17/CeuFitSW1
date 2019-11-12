@@ -9,10 +9,6 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>mostrarInformacion</servlet-name>
-        <servlet-class>clases.mostrarInformacion</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,10 +16,6 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>mostrarInformacion</servlet-name>
-        <url-pattern>/mostrarInformacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

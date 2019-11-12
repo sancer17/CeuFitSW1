@@ -8,18 +8,23 @@
 
         <ui:composition template="/plantillas/template.xhtml">
 
-            <ui:define name="top">
+            <ui:define name="top"></ui:define>
 
-            </ui:define>
+
+            <ui:define name="left"></ui:define>
+
 
             <ui:define name="content">
                 <nav id="menu">
                     <form method="get" action="/CEUFIT01/mostrarInformacion" name="datos">
                         <button name="clase" value="boxeo">Boxeo</button>
+                        <button name="clase" value="bodypump">Body Pump</button>
+                        <button name="clase" value="pilates">Pilates</button>
                     </form>
                 </nav>
             </ui:define>
 
+            <ui:define name="bottom"></ui:define>
         </ui:composition>
 
     </body>
