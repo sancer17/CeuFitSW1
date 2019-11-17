@@ -46,8 +46,8 @@ public class ProcesarServletFacelets extends HttpServlet {
         Integer puntuacion = 0;
         String usuario = request.getParameter("usuario");
         String query1 = null;
-        query1 = "select PASSWORD from USUARIOS where (NOMBRE ='" + usuario + "');";
-        String query2 = "select TIPO from USUARIOS where (NOMBRE ='" + usuario + "');";
+        query1 = "select PASSWORD from USUARIOS where (DNI ='" + usuario + "');";
+        String query2 = "select TIPO from USUARIOS where (DNI ='" + usuario + "');";
         ResultSet resultSet1 = null;
         ResultSet resultSet2 = null;
         Statement statement = null;
@@ -60,8 +60,10 @@ public class ProcesarServletFacelets extends HttpServlet {
                 statement = connection.createStatement();
                 resultSet1 = statement.executeQuery(query1);
                 passwordBuena = resultSet1.getString(1);
+                System.out.println(passwordBuena);
                 resultSet2 = statement.executeQuery(query2);
                 tipoUsuario = resultSet2.getString(1);
+                System.out.println(this.tipoUsuario);
             } catch (SQLException ex) {
                 Logger.getLogger(ProcesarServletFacelets.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -70,27 +72,27 @@ public class ProcesarServletFacelets extends HttpServlet {
 //                request.setAttribute("autenticado", true);
                 if (tipoUsuario.equals("socio")) {
                     RequestDispatcher anhadirServlet
-                        = contexto.getRequestDispatcher("vistaSocio.xhtml");
-                anhadirServlet.forward(request, response);
+                            = contexto.getRequestDispatcher("vistaSocio.xhtml");
+                    anhadirServlet.forward(request, response);
                 }
-                                               
+
                 if (tipoUsuario.equals("trabajador")) {
                     RequestDispatcher anhadirServlet
-                        = contexto.getRequestDispatcher("vistaTrabajador.xhtml");
-                anhadirServlet.forward(request, response);
+                            = contexto.getRequestDispatcher("vistaTrabajador.xhtml");
+                    anhadirServlet.forward(request, response);
                 }
-                
+
             } else {
                 request.setAttribute("errorMessage", ""
                         + "Contraseña Incorrecta");
                 RequestDispatcher paginaError
-                        = contexto.getRequestDispatcher("/CEUFIT01/registro.xhtml");
+                        = contexto.getRequestDispatcher("/registro.xhtml");
                 paginaError.forward(request, response);
             }
         } catch (NumberFormatException e) {
             request.setAttribute("errorMessage", "No has introducido un DNI correcto");
             RequestDispatcher paginaError
-                    = contexto.getRequestDispatcher("/CEUFIT01/registro.xhtml");
+                    = contexto.getRequestDispatcher("/registro.xhtml");
             paginaError.forward(request, response);
         }
     }
