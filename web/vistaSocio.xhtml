@@ -5,22 +5,18 @@
 
     <body>
 
-        <ui:composition template="./plantillas/template.xhtml">
+        <ui:composition template="./plantillas/templateVistaSocio.xhtml">
 
             <ui:define name="top">
-
+                top
             </ui:define>
 
             <ui:define name="content">
-                <form method="get" action="/CEUFIT01/ProcesarServletFacelets" name="datos">
-                    DNI: <input name="usuario"/>
-                    Password: <input name="password"/>
-                    <button>Enviar</button>
-                </form>
+                <h1><b>Login con éxito</b></h1>
             </ui:define>
 
             <ui:define name="bottom">
-                <p>#{requestScope.errorMessage}</p>
+                bottom
             </ui:define>
 
         </ui:composition>

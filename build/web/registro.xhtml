@@ -12,7 +12,11 @@
             </ui:define>
 
             <ui:define name="content">
-                Aquí puede el usuario iniciar sesión.
+                <form method="get" action="/CEUFIT01/ProcesarServletFacelets" name="datos">
+                    DNI: <input name="usuario"/>
+                    Password: <input name="password"/>
+                    <button>Enviar</button>
+                </form>
             </ui:define>
 
             <ui:define name="bottom">
