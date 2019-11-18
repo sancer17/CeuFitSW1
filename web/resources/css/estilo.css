@@ -8,7 +8,35 @@ and open the template in the editor.
     Author     : enrique
 */
 
+#tablaMenu{
+            font-size: 30px;
+            font-family: Calibri;
+            padding: 20px;
+            border-bottom: 3px solid darkblue;
+            border-top: 3px solid darkblue;
+    
+}
 
+.tdMenu{
+            background-color: Transparent;
+            background-repeat:no-repeat;
+            border: none;
+            cursor:none;
+            overflow: hidden;
+            outline:none;
+            font-size: 25px;
+            font-family: Calibri;
+            
+}
+
+#logo{
+    
+    padding-left: 100px;
+    
+}
+
+
+/*
 #menu {
     padding: 0;
     padding-left: 11em;
@@ -21,31 +49,11 @@ and open the template in the editor.
     outline:none;
     font-size: 25px;
     font-family: Calibri;
-}
-
-#menu li {
-    display: inline;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-
-
-.logo{
-    margin-left: -153px;
-    margin-right: -100px;
-
-    .ImagenGimnasio{
-        /* Aumentamos el ancho y la altura durante 1 segundo */
-        transition: width 1s, height 1s, transform 1s;
-        -moz-transition: width 1s, height 1s, -moz-transform 1s;
-        -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
-        -o-transition: width 1s, height 1s,-o-transform 1s;     
-    }
-    .ImagenGimnasio:hover{
-        /* tranformamos  su tamaño al pasar el mouse por encima con scale(2.5). */
-        transform : scale(1.5);
-        -moz-transform : scale(1.5);      /* Firefox */
-        -webkit-transform : scale(1.5);   /* Chrome - Safari */
-        -o-transform : scale(1.5);        /* Opera */
-    }
-}
+}*/
+/*ul.menu {
+    font-size: 25px; 
+    font-family: Calibri;
+    padding: 20px;
+    border-bottom: 3px solid darkblue;
+    border-top: 3px solid darkblue;
+}*/

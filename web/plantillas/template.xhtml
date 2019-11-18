@@ -2,31 +2,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/estilo.css"/>
-        <title>CEU FIT</title>
+        <title>CEU FIT - Tu gimnasio de confianza</title>
     </h:head>
 
     <h:body>
 
         <div id="top" class="top">
-
             <nav id="menu">
-                <div class="logo">
-                    <img src="./resources/imagenes/Imagen1.png" width="10%" height="10%"></img>
-                </div>
-                <h:form>
-                    <ul>
-                        <li><h:commandLink action="inicio">Inicio</h:commandLink></li>
-                        <li><h:commandLink action="clases">Clases</h:commandLink></li>
-                        <li><h:commandLink action="horarios">Horarios</h:commandLink></li>
-                        <li><h:commandLink action="instalaciones">Instalaciones</h:commandLink></li>
-                        <li><h:commandLink action="registro">Iniciar sesión</h:commandLink></li>
-                    </ul> 
-                </h:form>
+                
+                <table>
+                    <tr>
+                        <td>
+                            <div id="logo">
+                                <img src="./resources/imagenes/Imagen1.png" width="50%" height="50%"></img>
+                            </div>
+                        </td>
+                        <td width="80%">
+                            <h:form>
+                                <table id="tablaMenu" width="100%">
+                                    <tr>
+                                        <td class="tdMenu"><h:commandLink action="inicio">Inicio</h:commandLink></td>
+                                        <td class="tdMenu"><h:commandLink action="clases">Clases</h:commandLink></td>
+                                        <td class="tdMenu"><h:commandLink action="horarios">Horarios</h:commandLink></td>
+                                        <td class="tdMenu"><h:commandLink action="instalaciones">Instalaciones</h:commandLink></td>
+                                        <td class="tdMenu"><h:commandLink action="registro">Iniciar sesión</h:commandLink></td>
+                                    </tr> 
+                                </table>
+                            </h:form>
+                        </td>
+                    </tr>
+                </table>
             </nav>
             <ui:insert name="top"></ui:insert>
         </div>
