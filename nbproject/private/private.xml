@@ -3,26 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/claseConcreta.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/src/java/clases/mostrarInformacion.java</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/instalaciones.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/index.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/prueba.html</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/horariosSocio.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/plantillas/template.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/resources/css/estilo.css</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/registro.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/contacto.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/codigoSancer.html</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/src/java/login/ProcesarServletFacelets.java</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/vistaSocio.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/clases.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/clasesSocio.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/plantillas/templateVistaEmpleado.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/perfilSocio.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/horarios.xhtml</file>
-            <file>file:/C:/Users/Ignacio%20Goirena/Documents/NetBeansProjects/repoSW1/CeuFitSW1/web/inicio.xhtml</file>
+            <file>file:/C:/Users/Alejandro/git/CeuFitSW1/src/java/login/ProcesarServletFacelets.java</file>
+            <file>file:/C:/Users/Alejandro/git/CeuFitSW1/web/resources/css/estilo.css</file>
+            <file>file:/C:/Users/Alejandro/git/CeuFitSW1/web/plantillas/templateVistaAdmin.xhtml</file>
+            <file>file:/C:/Users/Alejandro/git/CeuFitSW1/web/plantillas/template.xhtml</file>
+            <file>file:/C:/Users/Alejandro/git/CeuFitSW1/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>
