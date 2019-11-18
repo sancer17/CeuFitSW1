@@ -12,7 +12,21 @@
     </h:head>
 
     <h:body>
+        <div id="top" class="top">
 
+            <nav id="menu">
+                <div class="logo">
+                    <img src="./resources/imagenes/Imagen1.png" width="10%" height="10%"></img>
+                </div>
+                <h:form>
+                    <ul>
+                        <li><h:commandLink action="inicio">Perfil</h:commandLink></li>
+                        <li><h:commandLink action="clases">Clases</h:commandLink></li>
+                        <li><h:commandLink action="horarios">Horarios</h:commandLink></li>
+                    </ul> 
+                </h:form>
+            </nav>
+        </div>
         <div id="top">
             <ui:insert name="top">Top</ui:insert>
         </div>
