@@ -59,9 +59,11 @@ public class ProcesarServletFacelets extends HttpServlet {
                 connection = datasource.getConnection();
                 statement = connection.createStatement();
                 resultSet1 = statement.executeQuery(query1);
+                resultSet1.next();
                 passwordBuena = resultSet1.getString(1);
                 System.out.println(passwordBuena);
                 resultSet2 = statement.executeQuery(query2);
+                resultSet2.next();
                 tipoUsuario = resultSet2.getString(1);
                 System.out.println(this.tipoUsuario);
             } catch (SQLException ex) {
