@@ -73,15 +73,15 @@ public class ProcesarServletFacelets extends HttpServlet {
 
             if (usuario != null && password.equals(passwordBuena)) {
 //                request.setAttribute("autenticado", true);
-                if (tipoUsuario.equals("socio")) {
+                if (tipoUsuario.equals("SOCIO")) {
                     RequestDispatcher anhadirServlet
                             = contexto.getRequestDispatcher("/vistaSocio.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
-                if (tipoUsuario.equals("trabajador")) {
+                if (tipoUsuario.equals("ADMIN")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/vistaTrabajador.xhtml");
+                            = contexto.getRequestDispatcher("/sociosAdmin.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
