@@ -211,9 +211,19 @@ textarea:hover {
 }
 
 
+#tablaInstalaciones{
+    margin-left: 5%;
+}
 
 .imagenHorario{
     width: 65%;
     height: 40%;
 
+}
+
+.imagenesTablaInstalaciones{
+    
+    width: 75%;
+    height: 45%;
+    
 }
