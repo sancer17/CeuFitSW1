@@ -37,7 +37,6 @@ public class ProcesarServletFacelets extends HttpServlet {
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
