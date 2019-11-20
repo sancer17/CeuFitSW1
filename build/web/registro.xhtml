@@ -12,11 +12,19 @@
             </ui:define>
 
             <ui:define name="content">
-                <form method="get" action="/CeuFitSW1/ProcesarServletFacelets" name="datos">
-                    DNI: <input name="usuario"/>
-                    Password: <input name="password"/>
-                    <button>Enviar</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            
+            <div id="contenedorLogin">
+                <form  method="get" action="/CeuFitSW1/ProcesarServletFacelets" id="formLogin" name="datos">
+                    DNI: <input type="text" name="usuario" placeholder="DNI"/>
+                    <br/><br/>Password: <input type="text" name="password" placeholder="PASSWORD"/>
+                    <br/><br/><input type="submit" name="enviar"></input>
                 </form>
+            
+            </div>
+            
+            
+            <br/><br/><br/><br/><br/><br/><br/><br/>
             </ui:define>
 
             <ui:define name="bottom">
