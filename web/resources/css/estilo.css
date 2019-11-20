@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : enrique
 */
 
+
+
+
+
 #tablaMenu{
     font-size: 30px;
     font-family: Calibri;
@@ -34,6 +38,10 @@ and open the template in the editor.
     padding-left: 100px;
 
 }
+
+
+//CSS de la pagina INICIO
+
 
 
 /*
@@ -228,6 +236,7 @@ textarea:hover {
     
 }
 
-#top{
-
+.top{
+    position: fixed;
+    background-color: white;
 }
