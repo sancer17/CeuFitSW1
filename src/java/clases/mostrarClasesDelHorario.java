@@ -106,7 +106,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
             }
 
             request.setAttribute("TablaDeClases", arrayClases);
-            RequestDispatcher rd = contexto.getRequestDispatcher("/apuntarseClase.xhtml");
+            RequestDispatcher rd = contexto.getRequestDispatcher("/clasesSocio.xhtml");
             rd.forward(request, response);
 
         } catch (SQLException ex) {
