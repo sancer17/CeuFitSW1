@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @WebServlet(name = "ProcesarServletFacelets", urlPatterns = {"/ProcesarServletFacelets"})
@@ -42,8 +43,9 @@ public class ProcesarServletFacelets extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ServletContext contexto = request.getServletContext();
-        Integer puntuacion = 0;
+        HttpSession sesion = request.getSession();
         String usuario = request.getParameter("usuario");
+        sesion.setAttribute("DNI", usuario);
         String query1 = null;
         query1 = "select PASSWORD from USUARIOS where (DNI ='" + usuario + "');";
         ResultSet resultSet1 = null;
