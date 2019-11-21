@@ -40,17 +40,18 @@ public class ProcesarServletFacelets extends HttpServlet {
         }
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ServletContext contexto = request.getServletContext();
         HttpSession sesion = request.getSession();
         String usuario = request.getParameter("usuario");
-        sesion.setAttribute("DNI", usuario);
         String query1 = null;
         query1 = "select PASSWORD from USUARIOS where (DNI ='" + usuario + "');";
         ResultSet resultSet1 = null;
         String query2 = "select TIPO from USUARIOS where (DNI ='" + usuario + "');";
         ResultSet resultSet2 = null;
+        String query3 = "select ID_USUARIO from USUARIOS where (DNI ='" + usuario + "');";
+        ResultSet resultSet3 = null;
         Statement statement = null;
         Connection connection = null;
         try {
@@ -68,6 +69,11 @@ public class ProcesarServletFacelets extends HttpServlet {
                 System.out.println(this.tipoUsuario);
                 System.out.println(usuario);
                 System.out.println(password);
+
+                resultSet3 = statement.executeQuery(query2);
+                resultSet3.next();
+                sesion.setAttribute("id_usuario", resultSet3.getString(1));
+
             } catch (SQLException ex) {
                 Logger.getLogger(ProcesarServletFacelets.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -76,13 +82,13 @@ public class ProcesarServletFacelets extends HttpServlet {
 //                request.setAttribute("autenticado", true);
                 if (tipoUsuario.equals("SOCIO")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/vistaSocio.xhtml");
+                            = contexto.getRequestDispatcher("/templateVistaSocio.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
                 if (tipoUsuario.equals("ADMIN")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/sociosAdmin.xhtml");
+                            = contexto.getRequestDispatcher("/templateVistaAdmin.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
