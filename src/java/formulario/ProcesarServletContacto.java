@@ -7,7 +7,6 @@ package formulario;
 
 import clases.mostrarInformacion;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,7 +38,6 @@ public class ProcesarServletContacto extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     DataSource datasource;
 
     @Override
@@ -55,28 +53,25 @@ public class ProcesarServletContacto extends HttpServlet {
         }
     }
 
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-            ServletContext contexto = request.getServletContext();
+        ServletContext contexto = request.getServletContext();
 
-            String nombre = request.getParameter("Nombre");
-            String email = request.getParameter("Email");
-            String mensaje = request.getParameter("Mensaje");
-
-            String query = "INSERT INTO CONTACTO VALUES("+nombre+", "+email+", "+mensaje+");";
-                    
-            /* TODO output your page here. You may use following sample code. */
-            
-            Connection conn = datasource.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            RequestDispatcher paginaInicio
-                        = contexto.getRequestDispatcher("/inicio.xhtml");
-                paginaInicio.forward(request, response);
+        String nombre = request.getParameter("Nombre");
+        String email = request.getParameter("Email");
+        String mensaje = request.getParameter("Mensaje");
         
+        String query = "INSERT INTO CONTACTO VALUES(" + nombre + ", " + email + ", " + mensaje + ");";
+
+        /* TODO output your page here. You may use following sample code. */
+        Connection conn = datasource.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        RequestDispatcher paginaInicio
+                = contexto.getRequestDispatcher("/inicio.xhtml");
+        paginaInicio.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
