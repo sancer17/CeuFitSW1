@@ -8,14 +8,54 @@ and open the template in the editor.
     Author     : enrique
 */
 
+#menu{
+    position: fixed;
+    background-color: #e86d18;
+}
+
+#ulMenu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 30px;
+    overflow: hidden;
+    font-size: 32px;
+}
+
+.liMenu{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.commandLinkStyle {
+    text-decoration: none;
+    color: white;
+}
+.liMenu:hover {
+  background-color: grey;
+}
+
+#logo{
+    padding-left: 100px;
+}
 
 
+/*
+.top{
+    position: fixed;
+    background-color: grey;
+}
+*/
 
-
+/*
 #tablaMenu{
     font-size: 30px;
     font-family: Calibri;
-    padding: 20px;
+    padding: 10px;
     border-bottom: 3px solid darkblue;
     border-top: 3px solid darkblue;
 
@@ -32,14 +72,7 @@ and open the template in the editor.
     font-family: Calibri;
 
 }
-
-#logo{
-
-    padding-left: 100px;
-
-}
-
-
+*/
 
 
 
@@ -230,16 +263,13 @@ and open the template in the editor.
 }
 
 .imagenesTablaInstalaciones{
-    
+
     width: 75%;
     height: 45%;
-    
+
 }
 
-.top{
-    position: fixed;
-    background-color: white;
-}
+
 
 
 
@@ -248,8 +278,8 @@ and open the template in the editor.
     margin-left: 40%;
     width: 20%;
     height: 200px;
-  border-style: solid;
-  border-width: 2px;
+    border-style: solid;
+    border-width: 2px;
 }
 
 
@@ -258,12 +288,11 @@ and open the template in the editor.
     alignment-adjust: central;
     height: 45px;
     width: 55%;
-    
-    
+
+
 }
 
 #contenedorLogin input:hover {
     background: yellow;
     color: black;
 }
-

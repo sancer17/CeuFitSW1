@@ -12,7 +12,7 @@
 
     <h:body>
 
-          <div id="top" class="top">
+        <div id="top" class="top">
             <nav id="menu">
 
                 <table>
@@ -27,15 +27,14 @@
                         </td>
                         <td width="80%">
                             <h:form>
-                                <table id="tablaMenu" width="100%">
-                                    <tr>
-                                        <td class="tdMenu"><h:commandLink action="sociosAdmin">Socios</h:commandLink></td>
-                                        <td class="tdMenu"><h:commandLink action="monitoresAdmin">Monitores</h:commandLink></td>
-                                        <td class="tdMenu"><h:commandLink action="clasesAdmin">Clases</h:commandLink></td>
-                                        <td class="tdMenu"><h:commandLink action="inicio">Cerrar sesion</h:commandLink></td>
-                                        
-                                    </tr> 
-                                </table>
+                                <div id="ulMenu" width="100%">
+                                    <ul>
+                                        <li class="liMenu"><h:commandLink action="sociosAdmin" styleClass="commandLinkStyle">Socios</h:commandLink></li>
+                                        <li class="liMenu"><h:commandLink action="monitoresAdmin" styleClass="commandLinkStyle">Monitores</h:commandLink></li>
+                                        <li class="liMenu"><h:commandLink action="clasesAdmin" styleClass="commandLinkStyle">Clases</h:commandLink></li>
+                                        <li class="liMenu"><h:commandLink action="inicio" styleClass="commandLinkStyle">Cerrar Sesión</h:commandLink></li>                       
+                                    </ul> 
+                                </div>
                             </h:form>
                         </td>
                     </tr>
