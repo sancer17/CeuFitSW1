@@ -82,13 +82,13 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 //                request.setAttribute("autenticado", true);
                 if (tipoUsuario.equals("SOCIO")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/templateVistaSocio.xhtml");
+                            = contexto.getRequestDispatcher("/vistaSocio.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
                 if (tipoUsuario.equals("ADMIN")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/templateVistaAdmin.xhtml");
+                            = contexto.getRequestDispatcher("/sociosAdmin.xhtml");
                     anhadirServlet.forward(request, response);
                 }
 
