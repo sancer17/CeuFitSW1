@@ -86,7 +86,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
         ServletContext contexto = request.getServletContext();
-        String query = "SELECT CLASE, HORARIO, MONITOR FROM CLASES;";
+        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES;";
         ResultSet resultSet = null;
         Statement statement = null;
         Connection connection = null;
@@ -101,7 +101,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
                 clases.setClase(resultSet.getString("CLASE"));
                 clases.setHorario(resultSet.getString("HORARIO"));
                 clases.setMonitor(resultSet.getString("MONITOR"));
-//                clases.setId_clase(resultSet.getString("ID_CLASE"));
+                clases.setId_clase(resultSet.getString("ID_CLASE"));
                 arrayClases.add(clases);
             }
 
@@ -158,8 +158,8 @@ public class mostrarClasesDelHorario extends HttpServlet {
         HttpSession sesion = request.getSession();
 //        String id_usuario = (String) sesion.getAttribute("id_usuario");
         ServletContext contexto = request.getServletContext();
-        String query = "INSERT INTO APUNTADOS(DNI, CLASE) VALUE('" + sesion.getAttribute("DNI")
-                + "'," + request.getAttribute("CLASE") + "');";
+        String query = "INSERT INTO APUNTADOS(ID_USUARIO, ID_CLASE) VALUE('" + sesion.getAttribute("id_usuario")
+                + "'," + request.getAttribute("id_clase") + "');";
         Statement statement = null;
         Connection connection = null;
         try {
