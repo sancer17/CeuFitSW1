@@ -332,3 +332,9 @@ and open the template in the editor.
 #formLogin input:focus {
     outline:none;
 }
+
+#headerSocioMostrarClases {
+    text-decoration: none;
+    color: white;
+    
+}
