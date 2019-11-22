@@ -48,6 +48,7 @@ public class ProcesarServletContacto extends HttpServlet {
             datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
             Connection connection = datasource.getConnection();
             Statement createStatement = connection.createStatement();
+            System.out.println("Habemus Conexion!!");
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,13 +62,17 @@ public class ProcesarServletContacto extends HttpServlet {
         String nombre = request.getParameter("Nombre");
         String email = request.getParameter("Email");
         String mensaje = request.getParameter("Mensaje");
+        System.out.println(nombre);
+        System.out.println(email);
+        System.out.println(mensaje);
         
-        String query = "INSERT INTO CONTACTO VALUES(" + nombre + ", " + email + ", " + mensaje + ");";
-
+        String query = "INSERT INTO CONTACTO VALUES(NULL,'" + nombre + "', '" + email + "', '" + mensaje + "');";
+        System.out.println(query);
+        
         /* TODO output your page here. You may use following sample code. */
         Connection conn = datasource.getConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
+        stmt.executeUpdate(query);
         RequestDispatcher paginaInicio
                 = contexto.getRequestDispatcher("/inicio.xhtml");
         paginaInicio.forward(request, response);
