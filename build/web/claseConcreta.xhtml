@@ -17,15 +17,17 @@
             </ui:define>
 
             <ui:define name="left">
-                <p> #{requestScope.descripcionClase}</p>
+
             </ui:define>
 
             <ui:define name="content">
-        <ul>
-            <c:forEach items="#{requestScope.comentarios}" var="entry">
-                <li>#{entry}</li>
-            </c:forEach>
-        </ul>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <p> #{requestScope.descripcionClase}</p>
+                <ul>
+                    <c:forEach items="#{requestScope.comentarios}" var="entry">
+                        <li>#{entry}</li>
+                    </c:forEach>
+                </ul>
             </ui:define>
 
             <ui:define name="bottom">
