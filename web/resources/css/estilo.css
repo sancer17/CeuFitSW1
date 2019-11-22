@@ -276,20 +276,14 @@ and open the template in the editor.
 }
 
 
-
-
-
 #contenedorLogin{
-    margin-left: 40%;
+    margin-left: 45%;
     width: 20%;
     height: 200px;
-    border-style: solid;
-    border-width: 2px;
 }
 
 
 #contenedorLogin input {
-    position: static;
     alignment-adjust: central;
     height: 45px;
     width: 55%;
@@ -298,6 +292,44 @@ and open the template in the editor.
 }
 
 #contenedorLogin input:hover {
-    background: yellow;
     color: black;
+}
+
+#formLogin input[type=text] {
+  border: none;
+  border-bottom: 3px solid #e86d18;
+}
+
+#formLogin input[type=text] {
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+#formLogin input[type=text]:focus {
+  width: 30%;
+}
+
+
+#formLogin input[type=submit] {
+  background-color: #e86d18;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#formLogin input[type=text]{
+    margin:auto;
+}
+
+#formLogin input [type=text]{
+    
+    display: none;
+    
+}
+
+#formLogin input:focus {
+    outline:none;
 }
