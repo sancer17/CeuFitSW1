@@ -21,6 +21,10 @@
         <servlet-name>ProcesarServletContacto</servlet-name>
         <servlet-class>formulario.ProcesarServletContacto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mostrarSocios</servlet-name>
+        <servlet-class>clases.mostrarSocios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>ProcesarServletContacto</servlet-name>
         <url-pattern>/ProcesarServletContacto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrarSocios</servlet-name>
+        <url-pattern>/mostrarSocios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
