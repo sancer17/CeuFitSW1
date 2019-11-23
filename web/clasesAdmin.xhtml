@@ -5,22 +5,38 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      >
 
     <body>
         <ui:composition template="./plantillas/templateVistaAdmin.xhtml">
-
             <ui:define name="top">
             </ui:define>
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <div>Aquí el admin podrá crear y eliminar clases </div>
+
+                <h2>Lista de clases con #{clasesBean.clases.size()} clases:</h2>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Horario</th>
+                        <th>Monitor</th>
+                        <th>Acción</th>  
+                    </tr>
+                    <tr>
+                        <ul>
+                            <ui:repeat value="#{clasesBean.clases}" var="clase">
+                                <li><p><h:outputText value="#{clase.clase}" /></p></li>
+                            </ui:repeat>
+                        </ul>
+                    </tr>
+                </table>
+
 
 
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>
