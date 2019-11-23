@@ -56,6 +56,14 @@ and open the template in the editor.
     text-align:left;
 }
 
+#left{
+    float: left;
+}
+
+#right{
+    float: right;
+}
+
 /*
 .top{
     position: fixed;
