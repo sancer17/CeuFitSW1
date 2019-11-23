@@ -43,6 +43,18 @@ and open the template in the editor.
     padding-left: 100px;
 }
 
+#tablaClases{
+    width: 40%
+}
+
+.trClases, tdClases {
+    width: 25%;
+   text-align: center;
+}
+.liListaClases{
+    list-style-type: none;
+    text-align:left;
+}
 
 /*
 .top{
