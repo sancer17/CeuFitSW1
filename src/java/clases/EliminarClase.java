@@ -7,16 +7,27 @@ package clases;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  *
  * @author Alejandro
  */
-public class ManejadorClases extends HttpServlet {
+
+
+
+public class EliminarClase extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,6 +38,24 @@ public class ManejadorClases extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    DataSource datasource;
+    
+    
+    @Override
+    public void init() throws ServletException {
+
+        try {
+            InitialContext initialContext = new InitialContext();
+            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
+            Connection connection = datasource.getConnection();
+            Statement createStatement = connection.createStatement();
+            System.out.println("Habemus Conexion!!");
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -35,10 +64,10 @@ public class ManejadorClases extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ManejadorClases</title>");            
+            out.println("<title>Servlet EliminarClase</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ManejadorClases at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EliminarClase at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
