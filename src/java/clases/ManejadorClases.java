@@ -26,7 +26,7 @@ import javax.sql.DataSource;
  *
  * @author Alejandro
  */
-public class AñadirClases extends HttpServlet {
+public class ManejadorClases extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -120,7 +120,7 @@ public class AñadirClases extends HttpServlet {
                     = contexto.getRequestDispatcher("/sociosAdmin.xhtml");
             paginaInicio.forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(AñadirClases.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManejadorClases.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -7,7 +7,6 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-          
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
@@ -24,16 +23,15 @@ and open the template in the editor.
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/>
                 <br/><br/>
-                <form method="post" action="/CeuFitSW1/AñadirClases" name="Añadir Clases">
+                <form method="post" action="/CeuFitSW1/ManejadorClases" name="Anadir Clases">
                     Nombre de la clase: <input name="clase"/>
                     Horario: <input name="horario"/>
                     Monitor: <input name="monitor"/>
                     Descripción: <input name="descripcion"/>
                     <button>Añadir Clase</button>
                 </form>
-                
-                <table border="2" id="tablaClases">
 
+                <table border="2" id="tablaClases">
                     <caption><h2>Lista de clases con #{clasesBean.clases.size()} clases:</h2></caption>
                     <tr class="trClases">
                         <th>Nombre</th>
@@ -66,8 +64,8 @@ and open the template in the editor.
                         <td class="tdClases">
                             <ui:repeat value="#{clasesBean.clases}" var="clase">
                                 <li class="liListaClases"><p>
-                                        <input type="button" value="Editar"></input></form>
-                                        <input type="button" value="Borar"></input></p> </li>
+                                    <input type="button" value="Editar"></input>
+                                    <input type="button" value="Borar"></input></p></li>
                             </ui:repeat>
                         </td>
                     </tr>
