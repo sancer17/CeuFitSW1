@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package monitores;
 
+import clases.*;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,36 +27,36 @@ import javax.sql.DataSource;
 
 @Named
 @SessionScoped
-public class ClasesBean implements Serializable {
+public class MonitoresBean implements Serializable {
 
-    private final ArrayList<Clase> clases;
+    private final ArrayList<Monitor> monitores;
 
-    public ClasesBean() {
+    public MonitoresBean() {
         System.out.println("Cargando clases ...");
-        this.clases = new ArrayList<>();
+        this.monitores = new ArrayList<>();
 
         try {
             InitialContext initialContext = new InitialContext();
             DataSource datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
             String query = null;
-            query = "SELECT *" + "FROM clases";
-
+            query = "SELECT * FROM MONITOR;";
+            System.out.println(query);
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
+            
             while (resultSet.next()) {
-                Clase clase = new Clase(resultSet.getString("clase"), resultSet.getString("descripcion"),
-                        resultSet.getString("horario"), resultSet.getString("monitor"));
-                clases.add(clase);
-                System.out.println("Clase: " + clase);
+                Monitor monitor = new Monitor(resultSet.getString("DNI"), resultSet.getString("NombreCompleto"),
+                        resultSet.getString("Email"), Integer.parseInt(resultSet.getString("numeroSS")), Integer.parseInt(resultSet.getString("telefono")));
+                monitores.add(monitor);
+                System.out.println("Monitor: " + monitor);
             }
         } catch (SQLException | NamingException ex) {
-            Logger.getLogger(ClasesBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonitoresBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public ArrayList<Clase> getClases() {
-        return clases;
+    public ArrayList<Monitor> getClases() {
+        return monitores;
     }
 }

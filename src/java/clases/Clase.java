@@ -23,13 +23,6 @@ public class Clase {
         this.monitor = monitor;
     }
 
-    public String getClase() {
-        return clase;
-    }
-
-    public void setClase(String clase) {
-        this.clase = clase;
-    }
 
     public String getDescripcion() {
         return descripcion;
