@@ -15,7 +15,7 @@
     </servlet>
     <servlet>
         <servlet-name>IntroducirComentario</servlet-name>
-        <servlet-class>clases.IntroducirComentario</servlet-class>
+        <servlet-class>comentarios.IntroducirComentario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MostrarMisClases</servlet-name>
@@ -24,6 +24,10 @@
     <servlet>
         <servlet-name>mostrarClasesDelHorario</servlet-name>
         <servlet-class>clases.mostrarClasesDelHorario</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>ProcesarServletFacelets</servlet-name>
+        <servlet-class>login.ProcesarServletFacelets</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProcesarServletContacto</servlet-name>
@@ -35,7 +39,7 @@
     </servlet>
     <servlet>
         <servlet-name>InformacionPerfilSocio</servlet-name>
-        <servlet-class>clases.InformacionPerfilSocio</servlet-class>
+        <servlet-class>perfil.InformacionPerfilSocio</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManejadorClases</servlet-name>
@@ -72,6 +76,10 @@
     <servlet-mapping>
         <servlet-name>ProcesarServletContacto</servlet-name>
         <url-pattern>/ProcesarServletContacto</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ProcesarServletFacelets</servlet-name>
+        <url-pattern>/ProcesarServletFacelets</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>mostrarSocios</servlet-name>

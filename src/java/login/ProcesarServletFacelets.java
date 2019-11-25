@@ -70,7 +70,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                 System.out.println(usuario);
                 System.out.println(password);
 
-                resultSet3 = statement.executeQuery(query2);
+                resultSet3 = statement.executeQuery(query3);
                 resultSet3.next();
                 sesion.setAttribute("id_usuario", resultSet3.getString(1));
 
@@ -82,7 +82,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 //                request.setAttribute("autenticado", true);
                 if (tipoUsuario.equals("SOCIO")) {
                     RequestDispatcher anhadirServlet
-                            = contexto.getRequestDispatcher("/vistaSocio.xhtml");
+                            = contexto.getRequestDispatcher("/InformacionPerfilSocio");
                     anhadirServlet.forward(request, response);
                 }
 
