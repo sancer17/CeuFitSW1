@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,17 +38,15 @@ public class mostrarClasesDelHorario extends HttpServlet {
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
-     * @param response servlet response
+     * @param config
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
 
         try {
             InitialContext initialContext = new InitialContext();
-            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
+            datasource = (DataSource) initialContext.lookup(config.getServletContext().getInitParameter("datasource"));
             Connection connection = datasource.getConnection();
             Statement createStatement = connection.createStatement();
         } catch (NamingException | SQLException ex) {
@@ -90,7 +89,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
         ResultSet resultSet = null;
         Statement statement = null;
         Connection connection = null;
-        TablaDeClases clases = new TablaDeClases();
+
         try {
             connection = datasource.getConnection();
             statement = connection.createStatement();
@@ -98,6 +97,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
             ArrayList arrayClases = new ArrayList();
 
             while (resultSet.next()) {
+                TablaDeClases clases = new TablaDeClases();
                 clases.setClase(resultSet.getString("CLASE"));
                 clases.setHorario(resultSet.getString("HORARIO"));
                 clases.setMonitor(resultSet.getString("MONITOR"));
@@ -159,13 +159,17 @@ public class mostrarClasesDelHorario extends HttpServlet {
 //        String id_usuario = (String) sesion.getAttribute("id_usuario");
         ServletContext contexto = request.getServletContext();
         String query = "INSERT INTO APUNTADOS(ID_USUARIO, ID_CLASE) VALUE('" + sesion.getAttribute("id_usuario")
-                + "'," + request.getAttribute("id_clase") + "');";
+                + "', '" + request.getParameter("id_clase") + "');";
+        System.out.println(query);
         Statement statement = null;
         Connection connection = null;
         try {
             connection = datasource.getConnection();
             statement = connection.createStatement();
             statement.executeUpdate(query);
+                        request.setAttribute("Apuntado", "Te has apuntado correctamente");
+            RequestDispatcher rd = contexto.getRequestDispatcher("/mostrarClasesDelHorario");
+            rd.forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
                     "Falló la consulta", ex);

@@ -18,11 +18,7 @@
                 <table class="clases">
                     <tr>
                         <td>Clase</td>
-                    </tr>
-                    <tr>
                         <td>Horario</td>
-                    </tr>
-                    <tr>
                         <td>Monitor</td>
                     </tr>
                     <ul>
@@ -32,8 +28,8 @@
                                 <td>#{entry.horario}</td>
                                 <td>#{entry.monitor}</td>
                                 <td> 
-                                    <form method="post" action="/CEUFIT01/mostrarClasesDelHorario" name="clases">
-                                        <input id="clase_id" name="id_clase" type="hidden" value="#{entry.id_clase}"></input>
+                                    <form method="post" action="/CeuFitSW1/mostrarClasesDelHorario" name="clases">
+                                        <input id="id_clase" name="id_clase" type="hidden" value="#{entry.id_clase}"></input>
                                         <button>Apúntame</button>
                                     </form>
                                 </td>
