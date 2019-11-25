@@ -6,7 +6,7 @@
     </context-param>
         <context-param>
         <param-name>datasource</param-name>
-        <param-value>"jdbc/CEUFIT01"</param-value>
+        <param-value>jdbc/CEUFIT01</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

@@ -6,22 +6,22 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-   
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <body>
-         <ui:composition template="./plantillas/templateVistaSocios.xhtml">
+        <ui:composition template="./plantillas/templateVistaSocios.xhtml">
 
             <ui:define name="top">
             </ui:define>
 
             <ui:define name="content">
-
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <div>
-                   <br>Información personal:</br>
-                   <p><br>Nombre y apellidos: </br>#{requestScope.nombreSocio} #{requestScope.apellidosSocio}</p>
-                   <p><br>Dirección: </br>#{requestScope.direccionSocio}</p>                
+                    <br>Información personal:</br>
+                    <p><br>Nombre y apellidos: </br>#{requestScope.nombreSocio} #{requestScope.apellidosSocio}</p>
+                    <p><br>Dirección: </br>#{requestScope.direccionSocio}</p>                
                 </div>
-               
+
             </ui:define>
 
         </ui:composition>
