@@ -33,14 +33,6 @@
         <servlet-name>EliminarClase</servlet-name>
         <servlet-class>clases.EliminarClase</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AnadirMonitor</servlet-name>
-        <servlet-class>clases.AnadirMonitor</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ProcesarServletNuevoMonitor</servlet-name>
-        <servlet-class>monitores.ProcesarServletNuevoMonitor</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -72,14 +64,6 @@
     <servlet-mapping>
         <servlet-name>EliminarClase</servlet-name>
         <url-pattern>/EliminarClase</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AnadirMonitor</servlet-name>
-        <url-pattern>/AnadirMonitor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProcesarServletNuevoMonitor</servlet-name>
-        <url-pattern>/ProcesarServletNuevoMonitor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -38,7 +38,7 @@ public class ClasesBean implements Serializable {
             InitialContext initialContext = new InitialContext();
             DataSource datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
             String query = null;
-            query = "SELECT *" + "FROM clases";
+            query = "SELECT *" + "FROM CLASES";
 
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();

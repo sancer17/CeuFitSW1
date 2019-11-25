@@ -5,9 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <body>
         <ui:composition template="./plantillas/templateVistaAdmin.xhtml">
@@ -17,67 +15,8 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                
-                
-                <table border="2" id="tablaMonitoresAdmin">
+                <div>Aquí el admin podrá dar de alta/baja monitores </div>
 
-                    <caption><h2>Lista de monitores con #{monitoresBean.monitores.size()} monitores:</h2></caption>
-                    <tr class="trMonitoresAdmin">
-                        <th class="thMonitoresAdmin">DNI</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Numero Seguridad Social</th>
-                        <th>Numero Telefono</th>
-                    </tr>
-                    <tr class="trMonitoresAdmin">
-                        <td class="tdMonitoresAdmin">
-                            <ol>
-                                <ui:repeat value="#{MonitoresBean.monitores}" var="monitor">
-                                    <li class="liListaMonitores"><p><h:outputText value="#{monitor.dni}" /></p></li>
-                                </ui:repeat>                                
-                            </ol>
-                        </td>
-                        <td class="tdMonitoresAdmin">
-                            <ol>
-                                <ui:repeat value="#{MonitoresBean.monitores}" var="monitor">
-                                    <li class="liListaClases"><p><h:outputText value="#{monitor.nombreCompleto}" /></p></li>
-                                </ui:repeat>
-                            </ol>
-                        </td>
-                        <td class="tdMonitoresAdmin">
-                            <ol>
-                                <ui:repeat value="#{clasesBean.clases}" var="clase">
-                                    <li class="liListaClases"><p><h:outputText value="#{clase.monitor}" /></p></li>
-                                </ui:repeat>
-                            </ol>
-                        </td>
-                        <td class="tdMonitoresAdmin">
-                            <ui:repeat value="#{clasesBean.clases}" var="clase">
-                                <li class="liListaClases"><p>
-                                        <input type="button" value="Editar"></input>
-                                        <input type="button" value="Borar"></input></p> </li>
-                            </ui:repeat>
-                        </td>
-                        <td class="tdMonitoresAdmin">
-                            <ui:repeat value="#{clasesBean.clases}" var="clase">
-                                <li class="liListaClases"><p>
-                                        <input type="button" value="Editar"></input>
-                                        <input type="button" value="Borar"></input></p> </li>
-                            </ui:repeat>
-                        </td>
-                    </tr>
-                </table>                
-                <br/><br/><br/><br/>
-                <form method="post" id="formAnadirMonitorAdmin" action="/CeuFitSW1/AnadirMonitor" align="center" class="topBefore" style="width: 100%;">
-                    <input id="DNI" name="DNI" type="text" placeholder="DNI"/>
-                    <input id="NombreCompleto" name="NombreCompleto" type="text" placeholder="NOMBRE Y APELLIDOS"/>
-                    <input id="Email" name="Email" type="text" placeholder="E-MAIL"/>
-                    <input id="numeroSS" name="NumeroSS" type="text" placeholder="Numero Seguridad Social"></input>
-                    <input id="telefono" name="Telefono" type="text" placeholder="Numero telefono"></input>
-                    <input id="Enviar" type="submit" value="VAMOS!"/>
-                </form>
-                
-              
 
             </ui:define>
 
