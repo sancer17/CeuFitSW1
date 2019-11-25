@@ -15,15 +15,11 @@ and open the template in the editor.
             </ui:define>
 
             <ui:define name="content">
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
                 <div>
-                   <!-- La puta tabla no funciona una gran incognita a resolver-->
-                Información personal:
-                <table>
-                     <tr>Nombre y apellidos</tr>
-                     <tr>Dirección</tr>
-                     <tr>Medio de pago</tr>
-                     </table>
+                   <br>Información personal:</br>
+                   <p><br>Nombre y apellidos: </br>#{requestScope.nombreSocio} #{requestScope.apellidosSocio}</p>
+                   <p><br>Dirección: </br>#{requestScope.direccionSocio}</p>                
                 </div>
                
             </ui:define>
