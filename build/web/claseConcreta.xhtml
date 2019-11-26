@@ -22,12 +22,16 @@
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <h><b>DESCRIPCIÓN</b></h>
                 <p> #{requestScope.descripcionClase}</p>
+                <p>
+                    <h><b>COMENTARIOS</b></h>
                 <ul>
                     <c:forEach items="#{requestScope.comentarios}" var="entry">
                         <li>#{entry}</li>
                     </c:forEach>
                 </ul>
+                </p>
             </ui:define>
 
             <ui:define name="bottom">
