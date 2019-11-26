@@ -11,18 +11,19 @@ and open the template in the editor.
     <body>
         <ui:composition template="./plantillas/templateVistaSocios.xhtml">
 
-            <ui:define name="top">
-            </ui:define>
+            <ui:define name="top"></ui:define>
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <div>
-                    <br>Información personal:</br>
-                    <p><br>Nombre y apellidos: </br>#{requestScope.nombreSocio} #{requestScope.apellidosSocio}</p>
-                    <p><br>Dirección: </br>#{requestScope.direccionSocio}</p>                
+                    <b>Información personal:</b>
+                    <p><b>Nombre y apellidos: </b>#{requestScope.nombreSocio} #{requestScope.apellidosSocio}</p>
+                    <p><b>Dirección: </b>#{requestScope.direccionSocio}</p>                
                 </div>
 
             </ui:define>
+            
+            <ui:define name="bottom"></ui:define>
 
         </ui:composition>
 

@@ -6,7 +6,6 @@
 package clases;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,7 +84,9 @@ public class mostrarClasesDelHorario extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
         ServletContext contexto = request.getServletContext();
-        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES;";
+        HttpSession sesion = request.getSession();
+//        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES;";
+        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES WHERE (ID_CLASE NOT IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO=' " + sesion.getAttribute("id_usuario") + "')));";
         ResultSet resultSet = null;
         Statement statement = null;
         Connection connection = null;
