@@ -109,6 +109,11 @@
         <servlet-name>BotonesClases</servlet-name>
         <url-pattern>/BotonesClases</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>
+            login.ListenerSesion
+        </listener-class>
+    </listener>
     <session-config>
         <session-timeout>
             30
