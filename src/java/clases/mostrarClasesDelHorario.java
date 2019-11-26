@@ -159,8 +159,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
         HttpSession sesion = request.getSession();
 //        String id_usuario = (String) sesion.getAttribute("id_usuario");
         ServletContext contexto = request.getServletContext();
-        String query = "INSERT INTO APUNTADOS(ID_USUARIO, ID_CLASE) VALUE('" + sesion.getAttribute("id_usuario")
-                + "', '" + request.getParameter("id_clase") + "');";
+        String query = "INSERT INTO APUNTADOS(ID_USUARIO, ID_CLASE) VALUE('" + sesion.getAttribute("id_usuario")+ "', '" + request.getParameter("id_clase") + "');";
         System.out.println(query);
         Statement statement = null;
         Connection connection = null;

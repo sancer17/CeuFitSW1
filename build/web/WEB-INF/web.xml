@@ -4,7 +4,7 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-        <context-param>
+    <context-param>
         <param-name>datasource</param-name>
         <param-value>jdbc/CEUFIT01</param-value>
     </context-param>
@@ -29,7 +29,7 @@
         <servlet-name>mostrarClasesDelHorario</servlet-name>
         <servlet-class>clases.mostrarClasesDelHorario</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ProcesarServletFacelets</servlet-name>
         <servlet-class>login.ProcesarServletFacelets</servlet-class>
     </servlet>
@@ -52,6 +52,10 @@
     <servlet>
         <servlet-name>EliminarClase</servlet-name>
         <servlet-class>clases.EliminarClase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BotonesClases</servlet-name>
+        <servlet-class>clases.BotonesClases</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -81,7 +85,7 @@
         <servlet-name>ProcesarServletContacto</servlet-name>
         <url-pattern>/ProcesarServletContacto</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProcesarServletFacelets</servlet-name>
         <url-pattern>/ProcesarServletFacelets</url-pattern>
     </servlet-mapping>
@@ -100,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>EliminarClase</servlet-name>
         <url-pattern>/EliminarClase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BotonesClases</servlet-name>
+        <url-pattern>/BotonesClases</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
