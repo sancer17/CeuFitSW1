@@ -77,39 +77,74 @@ public class MostrarMisClases extends HttpServlet {
 //                    clases.setMonitor(resultSet2.getString("MONITOR"));
 //                    arrayMisClases.add(clases);
 //                }
+//        ServletContext contexto = request.getServletContext();
+//        HttpSession sesion = request.getSession();
+//        String query1 = "SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "');";
+//        System.out.println(query1);
+//        ResultSet resultSet1 = null;
+//        Statement statement = null;
+//        Connection connection = null;
+//        ArrayList id_clases = new ArrayList();
+//        ArrayList misClases = new ArrayList();
+//
+//        try {
+//            connection = datasource.getConnection();
+//            statement = connection.createStatement();
+//            resultSet1 = statement.executeQuery(query1);
+//            while (resultSet1.next()) {
+//                id_clases.add(resultSet1.getString("ID_CLASE"));
+//            }
+//            int i;
+//            for (i = 0; i < id_clases.size(); i++) {
+//                String query2 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE (ID_CLASE='" + id_clases.get(i) + "');";
+//                ResultSet resultSet2 = null;
+//                resultSet2 = statement.executeQuery(query2);
+//                resultSet2.next();
+//                TablaDeClases clases = new TablaDeClases();
+//
+//                clases.setClase(resultSet2.getString("CLASE"));
+//                clases.setHorario(resultSet2.getString("HORARIO"));
+//                clases.setMonitor(resultSet2.getString("MONITOR"));
+//                misClases.add(clases);
+//
+//            }
+
         ServletContext contexto = request.getServletContext();
         HttpSession sesion = request.getSession();
-        String query1 = "SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "');";
+        String query1 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE "
+                + "(ID_CLASE IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "')));";
+        String query2 = "SELECT DISTINCT CLASE FROM CLASES WHERE "
+                + "(ID_CLASE IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "')));";
         System.out.println(query1);
         ResultSet resultSet1 = null;
+        ResultSet rs = null;
         Statement statement = null;
         Connection connection = null;
-        ArrayList id_clases = new ArrayList();
         ArrayList misClases = new ArrayList();
+        ArrayList clasesSinRepetir = new ArrayList();
 
         try {
             connection = datasource.getConnection();
             statement = connection.createStatement();
             resultSet1 = statement.executeQuery(query1);
             while (resultSet1.next()) {
-                id_clases.add(resultSet1.getString("ID_CLASE"));
-            }
-            int i;
-            for (i = 0; i < id_clases.size(); i++) {
-                String query2 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE (ID_CLASE='" + id_clases.get(i) + "');";
-                ResultSet resultSet2 = null;
-                resultSet2 = statement.executeQuery(query2);
-                resultSet2.next();
                 TablaDeClases clases = new TablaDeClases();
-
-                clases.setClase(resultSet2.getString("CLASE"));
-                clases.setHorario(resultSet2.getString("HORARIO"));
-                clases.setMonitor(resultSet2.getString("MONITOR"));
+                clases.setClase(resultSet1.getString("CLASE"));
+                clases.setHorario(resultSet1.getString("HORARIO"));
+                clases.setMonitor(resultSet1.getString("MONITOR"));
                 misClases.add(clases);
-
             }
 
             request.setAttribute("MisClases", misClases);
+
+            rs = statement.executeQuery(query2);
+            while (rs.next()) {
+                TablaDeClases clases = new TablaDeClases();
+                clases.setClase("CLASE");
+                clasesSinRepetir.add(clases);
+            }
+            request.setAttribute("clasesSinRepetir", clasesSinRepetir);
+
             RequestDispatcher rd = contexto.getRequestDispatcher("/horariosSocio.xhtml");
             rd.forward(request, response);
 
@@ -173,7 +208,7 @@ public class MostrarMisClases extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+
     @Override
     public void destroy() {
         try {
