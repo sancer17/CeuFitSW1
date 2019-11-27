@@ -11,13 +11,13 @@ package monitores;
  */
 public class Monitor {
     
-    String dni;
+    int dni;
     String nombreCompleto;
     String email;
-    int telefono;
-    int numeroSS;
+    String telefono;
+    String numeroSS;
     
-    public Monitor(String dni, String nombreCompleto, String email, int telefono, int numeroSS) {
+    public Monitor(int dni, String nombreCompleto, String email, String telefono, String numeroSS) {
         this.dni=dni;
         this.email=email;
         this.nombreCompleto=nombreCompleto;
@@ -28,11 +28,11 @@ public class Monitor {
     
     
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
@@ -52,19 +52,19 @@ public class Monitor {
         this.email = email;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public int getNumeroSS() {
+    public String getNumeroSS() {
         return numeroSS;
     }
 
-    public void setNumeroSS(int numeroSS) {
+    public void setNumeroSS(String numeroSS) {
         this.numeroSS = numeroSS;
     }
 

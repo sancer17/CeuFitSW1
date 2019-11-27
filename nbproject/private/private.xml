@@ -3,26 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/comentarios/IntroducirComentario.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/MostrarMisClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/nbproject/build-impl.xml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/ClasesBean.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/registro.xhtml</file>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/perfilSocio.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/horariosSocio.xhtml</file>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/monitoresAdmin.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/mostrarClasesDelHorario.java</file>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/EliminarClase.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/clasesAdmin.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/claseConcreta.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/BotonesClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/WEB-INF/web.xml</file>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaSocios.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/template.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/muestraMonitores.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/clases.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/TablaDeClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/mostrarInformacion.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/Clase.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/comentarios/IntroducirComentario.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaAdmin.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/perfilSocio.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/AnadirMonitor.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/monitoresAdmin.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/EliminarClase.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/Monitor.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaSocios.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/login/ListenerSesion.java</file>
         </group>
     </open-files>

@@ -155,41 +155,6 @@ public class mostrarClasesDelHorario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-
-        HttpSession sesion = request.getSession();
-//        String id_usuario = (String) sesion.getAttribute("id_usuario");
-        ServletContext contexto = request.getServletContext();
-        String query = "INSERT INTO APUNTADOS(ID_USUARIO, ID_CLASE) VALUE('" + sesion.getAttribute("id_usuario")+ "', '" + request.getParameter("id_clase") + "');";
-        System.out.println(query);
-        Statement statement = null;
-        Connection connection = null;
-        try {
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-                        request.setAttribute("Apuntado", "Te has apuntado correctamente");
-            RequestDispatcher rd = contexto.getRequestDispatcher("/mostrarClasesDelHorario");
-            rd.forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-                    "Falló la consulta", ex);
-        } finally {
-
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
     }
 
     /**

@@ -27,9 +27,9 @@
                             <h:form>
                                 <div id="ulMenu" width="100%">
                                     <ul>
-                                        <li class="liMenu"><h:commandLink action="sociosAdmin" styleClass="commandLinkStyle">Socios</h:commandLink></li>
-                                        <li class="liMenu"><h:commandLink action="monitoresAdmin" styleClass="commandLinkStyle">Monitores</h:commandLink></li>
-                                        <li class="liMenu"><h:commandLink action="clasesAdmin" styleClass="commandLinkStyle">Clases</h:commandLink></li>
+                                        <li class="liMenu"><h:commandLink action="sociosAdmin" class="headerAdminSocio">Socios</h:commandLink></li>
+                                        <li class="liMenu"><a href="/CeuFitSW1/muestraMonitores" class="headerAdminSocio">Monitores</a></li>
+                                        <li class="liMenu"><h:commandLink action="clasesAdmin" class="headerAdminSocio">Clases</h:commandLink></li>
                                         <li style="float:right" class="liMenu"><h:commandLink action="inicio" styleClass="commandLinkStyle">Cerrar Sesión</h:commandLink></li>                       
                                     </ul> 
                                 </div>
@@ -84,5 +84,6 @@
         </footer>
     </h:body>
 
+    
 
 </html>

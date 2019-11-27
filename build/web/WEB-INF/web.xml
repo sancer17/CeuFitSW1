@@ -57,6 +57,18 @@
         <servlet-name>BotonesClases</servlet-name>
         <servlet-class>clases.BotonesClases</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AnadirMonitor</servlet-name>
+        <servlet-class>monitores.AnadirMonitor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>muestraMonitores</servlet-name>
+        <servlet-class>monitores.muestraMonitores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApuntarseClase</servlet-name>
+        <servlet-class>clases.ApuntarseClase</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -114,6 +126,18 @@
             login.ListenerSesion
         </listener-class>
     </listener>
+    <servlet-mapping>
+        <servlet-name>AnadirMonitor</servlet-name>
+        <url-pattern>/AnadirMonitor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>muestraMonitores</servlet-name>
+        <url-pattern>/muestraMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApuntarseClase</servlet-name>
+        <url-pattern>/ApuntarseClase</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
