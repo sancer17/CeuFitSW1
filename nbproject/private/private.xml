@@ -13,6 +13,7 @@
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/claseConcreta.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/BotonesClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/WEB-INF/web.xml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/mostrarSocios.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/template.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/muestraMonitores.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/clases.xhtml</file>
@@ -23,10 +24,13 @@
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaAdmin.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/perfilSocio.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/AnadirMonitor.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/clasesSocio.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/monitoresAdmin.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/EliminarClase.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/Monitor.java</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/dataBase/DBManager.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaSocios.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/ApuntarseClase.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/login/ListenerSesion.java</file>
         </group>
     </open-files>
