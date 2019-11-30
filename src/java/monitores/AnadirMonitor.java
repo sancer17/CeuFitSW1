@@ -106,8 +106,7 @@ public class AnadirMonitor extends HttpServlet {
                 stmt.executeUpdate(query);
                 
             
-            RequestDispatcher pInici
-                    = context.getRequestDispatcher("/muestraMonitores");
+            RequestDispatcher pInici = context.getRequestDispatcher("/muestraMonitores");
             pInici.forward(request, response);
                 
         }

@@ -90,7 +90,41 @@ public class muestraMonitores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            mostrarTodosMonitores(request, response);
+        }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+                mostrarTodosMonitores(request, response);
+
         
+    
+    
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+    public void mostrarTodosMonitores(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+                
         ArrayList<Monitor> monitores  = new ArrayList<>();
         ServletContext contexto = request.getServletContext();
         String query = "SELECT * FROM monitor;";
@@ -119,35 +153,6 @@ public class muestraMonitores extends HttpServlet {
         } catch (SQLException | NamingException ex) {
             Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        
-        
-    
-    
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }

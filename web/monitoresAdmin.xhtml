@@ -44,12 +44,18 @@ and open the template in the editor.
                                 <table id="botonesTabla">
                                     <tr>
                                         <td>
-                                            <form action="/modificarMonitor" method="post" type="hidden" name="ID" value="#{monitor.dni}">
+                                            <form action="/CeuFitSW1/modificarMonitor.xhtml" method="post">
+                                                <input type="hidden" name="ID" value="#{monitor.dni}"/>
+                                                <input type="hidden" name="ID" value="#{monitor.nombreCompleto}"/>
+                                                <input type="hidden" name="ID" value="#{monitor.email}"/>
+                                                <input type="hidden" name="ID" value="#{monitor.numeroSS}"/>
+                                                <input type="hidden" name="ID" value="#{monitor.telefono}"/>
                                                 <input type="submit" value="MODIFICAR"/>
                                             </form>
                                         </td>
                                         <td>
-                                            <form action="/borrarMonitor" method="post"  type="hidden" name="ID" value="#{monitor.dni}">
+                                            <form action="/CeuFitSW1/borrarMonitores" method="post">
+                                                <input type="hidden" name="ID" value="#{monitor.dni}"/>
                                                 <input type="submit" value="BORRAR"/>
                                             </form>
                                         </td>

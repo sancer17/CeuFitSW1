@@ -358,3 +358,84 @@ and open the template in the editor.
     color: white;
     
 }
+
+.tablasMostrarObjetos{
+    
+    text-align: center;
+    
+    
+}
+.tablasMostrarObjetos tr{
+    
+    height: 35px;
+
+}
+.tablasMostrarObjetos td{
+    width: 200px;
+}
+
+.tablasMostrarObjetos tr:nth-child(odd) {
+    background-color:#ffa040;
+}
+.tablasMostrarObjetos tr:nth-child(even) {
+    background-color:#e6e6e6;
+}
+#cabeceraTablaMostrarObjetos{
+    background-color: #252850;
+    color: white;
+    font-weight: bold;
+    height: 60px;
+}
+
+
+
+#slider,  #slider .slide{
+  width: 500px;
+  height: 250px;
+}
+#slider {
+  overflow: hidden;
+  margin: 0 auto;
+  font-size: 1.2em;
+  text-align: center;
+  vertical-align: middle;
+}
+#slider .container {
+  position: relative;
+  width: 9000px; /* Assign an insanely large width */
+  top: 0;
+  right: 0;
+  animation: slide-animation 25s infinite;
+}
+#slider .slide {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+/* [ANIMATION] */
+@keyframes slide-animation {
+  0% { 
+    opacity: 0;
+    right: 0;
+  }
+  11% {
+    opacity: 1;
+    right: 0; 
+  }
+  22% { right: 100%; }
+  33% { right: 100%; }
+  44% { right: 200%; }
+  55% { right: 200%; }
+  66% { right: 300%; }
+  77% { right: 300%; }
+  88% {
+    opacity: 1;
+    right: 400%; 
+  }
+  100% {
+    opacity: 0;
+    right: 400%;
+  }
+}

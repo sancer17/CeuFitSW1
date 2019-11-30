@@ -5,6 +5,8 @@
  */
 package clases;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alejandro
@@ -15,12 +17,19 @@ public class Clase {
     String descripcion;
     String horario;
     String monitor;
+    ArrayList<String> comentarios;
 
-    public Clase(String clase, String descripcion, String horario, String monitor) {
+
+    public Clase(String clase, String descripcion, String horario, String monitor, ArrayList<String> comentarios) {
         this.clase = clase;
         this.descripcion = descripcion;
         this.horario = horario;
         this.monitor = monitor;
+        this.comentarios = comentarios;
+    }
+///Este constructor lo meto pq saltaba un error en la clase ClaseBean
+    Clase(String string, String string0, String string1, String string2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getClase() {
@@ -47,6 +56,14 @@ public class Clase {
         this.horario = horario;
     }
 
+    public ArrayList<String> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(ArrayList<String> comentarios) {
+        this.comentarios = comentarios;
+    }
+
     public String getMonitor() {
         return monitor;
     }
@@ -57,6 +74,8 @@ public class Clase {
 
     @Override
     public String toString() {
-        return "Clase{" + "clase=" + clase + ", descripcion=" + descripcion + ", horario=" + horario + ", monitor=" + monitor + '}';
+        return "Clase{" + "clase=" + clase + ", descripcion=" + descripcion + ", horario=" + horario + ", monitor=" + monitor + ", comentarios=" + comentarios + '}';
     }
+
+ 
 }
