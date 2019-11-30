@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.naming.InitialContext;
@@ -25,7 +26,7 @@ import javax.sql.DataSource;
  */
 
 @Named
-@SessionScoped
+@RequestScoped
 public class ClasesBean implements Serializable {
 
     private final ArrayList<Clase> clases;

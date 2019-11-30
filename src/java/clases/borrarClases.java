@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monitores;
+package clases;
 
-import clases.mostrarInformacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -26,9 +25,23 @@ import javax.sql.DataSource;
 
 /**
  *
- * @author rootjsn
+ * @author Alejandro
  */
-public class modificarMonitores extends HttpServlet {
+public class borrarClases extends HttpServlet {
+
+    DataSource datasource;
+
+    @Override
+    public void init() throws ServletException {
+        try {
+            InitialContext initialContext = new InitialContext();
+            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
+            Connection connection = datasource.getConnection();
+            Statement createStatement = connection.createStatement();
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,22 +52,6 @@ public class modificarMonitores extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    DataSource datasource;
-
-    @Override
-    public void init() throws ServletException {
-
-        try {
-            InitialContext initialContext = new InitialContext();
-            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
-            Connection connection = datasource.getConnection();
-            Statement createStatement = connection.createStatement();
-            System.out.println("Habemus Conexion!!");
-        } catch (NamingException | SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -63,10 +60,10 @@ public class modificarMonitores extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet modificarMonitores</title>");
+            out.println("<title>Servlet borrarClases</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet modificarMonitores at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet borrarClases at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,7 +81,7 @@ public class modificarMonitores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**
@@ -98,36 +95,24 @@ public class modificarMonitores extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = request.getServletContext();
-
+        String clase = request.getParameter("clase");
+        String query = "DELETE FROM CLASES WHERE CLASE = " + clase;
+        ResultSet resultSet = null;
         Connection connection = null;
         Statement statement = null;
-        try {
-            InitialContext initialContext = new InitialContext();
-
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            String DNIoriginal = request.getParameter("DNIoriginal");
-            String DNINuevo = request.getParameter("DNI");
-            String nombreNuevo = request.getParameter("NombreCompleto");
-            String emailNuevo = request.getParameter("Email");
-            String numeroSSNuevo = request.getParameter("NumeroSS");
-            String telefonoNuevo = request.getParameter("Telefono");
-
-            String query = "UPDATE monitores SET DNI='" + DNINuevo + "', NOMBRE='" + nombreNuevo + ", ' EMAIL='" + emailNuevo + "', TELEFONO='" + telefonoNuevo + "', NUMEROSS='" + numeroSSNuevo + "' WHERE DNI='" + DNIoriginal + "';";
-
+        
+        try{
             connection = datasource.getConnection();
             statement = connection.createStatement();
             statement.executeUpdate(query);
-
-            RequestDispatcher pInici = context.getRequestDispatcher("/muestraMonitores");
-
-            pInici.forward(request, response);
-
-        } catch (SQLException | NamingException ex) {
-            Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
+            
+            RequestDispatcher volverAMenu = context.getRequestDispatcher("/mostrarClases");
+            volverAMenu.forward(request, response);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(borrarClases.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

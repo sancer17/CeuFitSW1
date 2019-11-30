@@ -40,11 +40,8 @@ public class AnadirMonitor extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     DataSource datasource;
 
-    
-    
     @Override
     public void init() throws ServletException {
 
@@ -58,7 +55,7 @@ public class AnadirMonitor extends HttpServlet {
             Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -67,7 +64,7 @@ public class AnadirMonitor extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AnadirMonitor</title>");            
+            out.println("<title>Servlet AnadirMonitor</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AnadirMonitor at " + request.getContextPath() + "</h1>");
@@ -88,7 +85,7 @@ public class AnadirMonitor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try{
+        try {
             response.setContentType("text/html;charset=UTF-8");
             ServletContext context = request.getServletContext();
             int dni = Integer.parseInt(request.getParameter("DNI"));
@@ -96,24 +93,22 @@ public class AnadirMonitor extends HttpServlet {
             String email = request.getParameter("Email");
             String numeroSS = request.getParameter("NumeroSS");
             String telefono = request.getParameter("Telefono");
-            System.out.println("NOMBRE"+ nombreCompleto);
-            String query = "INSERT INTO monitor VALUES("+dni+
-                    ", '"+nombreCompleto+"', '"+email+"', '"+numeroSS+
-                    "', '"+telefono+"');";
+            System.out.println("NOMBRE" + nombreCompleto);
+            String query = "INSERT INTO monitor VALUES(" + dni
+                    + ", '" + nombreCompleto + "', '" + email + "', '" + numeroSS
+                    + "', '" + telefono + "');";
             System.out.println(query);
             Connection conn = datasource.getConnection();
-                Statement stmt = conn.createStatement();
-                stmt.executeUpdate(query);
-                
-            
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query);
+
             RequestDispatcher pInici = context.getRequestDispatcher("/muestraMonitores");
             pInici.forward(request, response);
-                
-        }
-        catch(SQLException ex){
+
+        } catch (SQLException ex) {
             Logger.getLogger(AnadirMonitor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**
@@ -124,11 +119,10 @@ public class AnadirMonitor extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
     }
 
     /**

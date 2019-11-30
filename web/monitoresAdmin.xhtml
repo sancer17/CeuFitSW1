@@ -19,52 +19,52 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                
+
                 <p> #{requestScope.muestraMonitores}</p>
                 <table>
                     <tr>
                         <td>
-                <table class="tablasMostrarObjetos">
-                    <tr id="cabeceraTablaMostrarObjetos">
-                        <th>DNI</th>
-                        <th>NOMBRE</th>
-                        <th>E-MAIL</th>
-                        <th>SEGURIDAD SOCIAL</th>
-                        <th>TELEFONO</th>
-                        <th>MODIFICAR/BORRAR</th>
-                    </tr>
-                    <c:forEach items="#{requestScope.monitores}" var="monitor">
-                        <tr>
-                            <td>#{monitor.dni}</td>
-                            <td>#{monitor.nombreCompleto}</td>
-                            <td>#{monitor.email}</td>
-                            <td>#{monitor.numeroSS}</td>
-                            <td>#{monitor.telefono}</td>
-                            <td>
-                                <table id="botonesTabla">
+                            <table class="tablasMostrarObjetos">
+                                <tr id="cabeceraTablaMostrarObjetos">
+                                    <th>DNI</th>
+                                    <th>NOMBRE</th>
+                                    <th>E-MAIL</th>
+                                    <th>SEGURIDAD SOCIAL</th>
+                                    <th>TELEFONO</th>
+                                    <th>MODIFICAR/BORRAR</th>
+                                </tr>
+                                <c:forEach items="#{requestScope.monitores}" var="monitor">
                                     <tr>
+                                        <td>#{monitor.dni}</td>
+                                        <td>#{monitor.nombreCompleto}</td>
+                                        <td>#{monitor.email}</td>
+                                        <td>#{monitor.numeroSS}</td>
+                                        <td>#{monitor.telefono}</td>
                                         <td>
-                                            <form action="/CeuFitSW1/modificarMonitor.xhtml" method="post">
-                                                <input type="hidden" name="ID" value="#{monitor.dni}"/>
-                                                <input type="hidden" name="ID" value="#{monitor.nombreCompleto}"/>
-                                                <input type="hidden" name="ID" value="#{monitor.email}"/>
-                                                <input type="hidden" name="ID" value="#{monitor.numeroSS}"/>
-                                                <input type="hidden" name="ID" value="#{monitor.telefono}"/>
-                                                <input type="submit" value="MODIFICAR"/>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="/CeuFitSW1/borrarMonitores" method="post">
-                                                <input type="hidden" name="ID" value="#{monitor.dni}"/>
-                                                <input type="submit" value="BORRAR"/>
-                                            </form>
+                                            <table id="botonesTabla">
+                                                <tr>
+                                                    <td>
+                                                        <form action="/CeuFitSW1/modificarMonitor.xhtml" method="post">
+                                                            <input type="hidden" name="ID" value="#{monitor.dni}"/>
+                                                            <input type="hidden" name="ID" value="#{monitor.nombreCompleto}"/>
+                                                            <input type="hidden" name="ID" value="#{monitor.email}"/>
+                                                            <input type="hidden" name="ID" value="#{monitor.numeroSS}"/>
+                                                            <input type="hidden" name="ID" value="#{monitor.telefono}"/>
+                                                            <input type="submit" value="MODIFICAR"/>
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <form action="/CeuFitSW1/borrarMonitores" method="post">
+                                                            <input type="hidden" name="ID" value="#{monitor.dni}"/>
+                                                            <input type="submit" value="BORRAR"/>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </td>
                                     </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
+                                </c:forEach>
+                            </table>
                         </td>
                         <td width="100px">
                             <div width="100px">
@@ -75,12 +75,12 @@ and open the template in the editor.
                                     <input id="numeroSS" name="NumeroSS" type="text" placeholder="Numero Seguridad Social"></input>
                                     <input id="telefono" name="Telefono" type="text" placeholder="Numero telefono"></input>
                                     <input id="Enviar" type="submit" value="VAMOS!"/>
-                                    
+
                                 </form>
                             </div>
                         </td>
                     </tr>
-                    
+
                 </table>
             </ui:define>
 

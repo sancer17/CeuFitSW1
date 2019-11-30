@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monitores;
+package clases;
 
-import clases.mostrarInformacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.InitialContext;
@@ -26,9 +26,9 @@ import javax.sql.DataSource;
 
 /**
  *
- * @author rootjsn
+ * @author Alejandro
  */
-public class modificarMonitores extends HttpServlet {
+public class mostrarClases extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,15 +43,13 @@ public class modificarMonitores extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-
         try {
             InitialContext initialContext = new InitialContext();
             datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
             Connection connection = datasource.getConnection();
             Statement createStatement = connection.createStatement();
-            System.out.println("Habemus Conexion!!");
         } catch (NamingException | SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(mostrarClases.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -63,10 +61,10 @@ public class modificarMonitores extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet modificarMonitores</title>");
+            out.println("<title>Servlet mostrarClases</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet modificarMonitores at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet mostrarClases at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,7 +82,7 @@ public class modificarMonitores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        listarClases(request, response);
     }
 
     /**
@@ -98,37 +96,7 @@ public class modificarMonitores extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        response.setContentType("text/html;charset=UTF-8");
-        ServletContext context = request.getServletContext();
-
-        Connection connection = null;
-        Statement statement = null;
-        try {
-            InitialContext initialContext = new InitialContext();
-
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            String DNIoriginal = request.getParameter("DNIoriginal");
-            String DNINuevo = request.getParameter("DNI");
-            String nombreNuevo = request.getParameter("NombreCompleto");
-            String emailNuevo = request.getParameter("Email");
-            String numeroSSNuevo = request.getParameter("NumeroSS");
-            String telefonoNuevo = request.getParameter("Telefono");
-
-            String query = "UPDATE monitores SET DNI='" + DNINuevo + "', NOMBRE='" + nombreNuevo + ", ' EMAIL='" + emailNuevo + "', TELEFONO='" + telefonoNuevo + "', NUMEROSS='" + numeroSSNuevo + "' WHERE DNI='" + DNIoriginal + "';";
-
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-
-            RequestDispatcher pInici = context.getRequestDispatcher("/muestraMonitores");
-
-            pInici.forward(request, response);
-
-        } catch (SQLException | NamingException ex) {
-            Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        listarClases(request, response);
     }
 
     /**
@@ -140,5 +108,31 @@ public class modificarMonitores extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void listarClases(HttpServletRequest request, HttpServletResponse response) {
+        ArrayList<Clase> clases = new ArrayList<>();
+        ServletContext contexto = request.getServletContext();
+        String query = "SELECT * FROM CLASES";
+        ResultSet resultSet = null;
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            InitialContext initialContext = new InitialContext();
+            connection = datasource.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Clase clase = new Clase(resultSet.getString("clase"), resultSet.getString("descripcion"),
+                        resultSet.getString("horario"), resultSet.getString("monitor"));
+                clases.add(clase);
+            }
+            request.setAttribute("Arrayclases", clases);
+            RequestDispatcher volverAMenu = contexto.getRequestDispatcher("/clasesAdmin.xhtml");
+            volverAMenu.forward(request, response);
+        } catch (SQLException | ServletException | IOException | NamingException ex) {
+            Logger.getLogger(mostrarClases.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

@@ -69,6 +69,22 @@
         <servlet-name>ApuntarseClase</servlet-name>
         <servlet-class>clases.ApuntarseClase</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mostrarClases</servlet-name>
+        <servlet-class>clases.mostrarClases</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>borrarClases</servlet-name>
+        <servlet-class>clases.borrarClases</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>anhadirClases</servlet-name>
+        <servlet-class>clases.anhadirClases</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarClases</servlet-name>
+        <servlet-class>clases.modificarClases</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -137,6 +153,22 @@
     <servlet-mapping>
         <servlet-name>ApuntarseClase</servlet-name>
         <url-pattern>/ApuntarseClase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrarClases</servlet-name>
+        <url-pattern>/mostrarClases</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>borrarClases</servlet-name>
+        <url-pattern>/borrarClases</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>anhadirClases</servlet-name>
+        <url-pattern>/anhadirClases</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarClases</servlet-name>
+        <url-pattern>/modificarClases</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
