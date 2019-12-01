@@ -27,10 +27,14 @@ public class Clase {
         this.monitor = monitor;
         this.comentarios = comentarios;
     }
-///Este constructor lo meto pq saltaba un error en la clase ClaseBean
-    Clase(String string, String string0, String string1, String string2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public Clase(String clase, String descripcion, String horario, String monitor) {
+        this.clase = clase;
+        this.descripcion = descripcion;
+        this.horario = horario;
+        this.monitor = monitor;
     }
+    
 
     public String getClase() {
         return clase;

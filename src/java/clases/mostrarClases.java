@@ -127,7 +127,7 @@ public class mostrarClases extends HttpServlet {
                         resultSet.getString("horario"), resultSet.getString("monitor"));
                 clases.add(clase);
             }
-            request.setAttribute("Arrayclases", clases);
+            request.setAttribute("ArrayClases", clases);
             RequestDispatcher volverAMenu = contexto.getRequestDispatcher("/clasesAdmin.xhtml");
             volverAMenu.forward(request, response);
         } catch (SQLException | ServletException | IOException | NamingException ex) {

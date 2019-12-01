@@ -98,7 +98,8 @@ public class borrarClases extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = request.getServletContext();
         String clase = request.getParameter("clase");
-        String query = "DELETE FROM CLASES WHERE CLASE = " + clase;
+        String query = "DELETE FROM CLASES WHERE CLASE = '" + clase + "';";
+        System.out.println(query);
         ResultSet resultSet = null;
         Connection connection = null;
         Statement statement = null;
