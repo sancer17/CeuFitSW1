@@ -102,25 +102,24 @@ public class borrarMonitores extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = request.getServletContext();
-        String dni = request.getParameter("ID");
+        String dni = request.getParameter("dni");
         System.out.println("IMPREME" + dni);
-        String query = "DELETE FROM monitor where DNI=" + dni + ";";
+        String query = "DELETE FROM monitor where DNI='" + dni + "';";
         ResultSet resultSet = null;
         Connection connection = null;
         Statement statement = null;
         System.out.println(query);
         try {
-            InitialContext initialContext = new InitialContext();
             System.out.println(query);
             connection = datasource.getConnection();
             statement = connection.createStatement();
             statement.executeUpdate(query);
-
+            
             RequestDispatcher pInici = context.getRequestDispatcher("/muestraMonitores");
-
+            
             pInici.forward(request, response);
 
-        } catch (SQLException | NamingException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(borrarMonitores.class.getName()).log(Level.SEVERE, null, ex);
         }
 

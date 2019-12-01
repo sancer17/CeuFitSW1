@@ -20,7 +20,7 @@ and open the template in the editor.
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 
-                <p> #{requestScope.monitoresAdmin.xhtml}</p>
+                <p> #{requestScope.modificarMonitores}</p>
                 <table>
                     <tr>
                         <td>
@@ -31,9 +31,7 @@ and open the template in the editor.
                         <th>E-MAIL</th>
                         <th>SEGURIDAD SOCIAL</th>
                         <th>TELEFONO</th>
-                        <th>MODIFICAR/BORRAR</th>
                     </tr>
-                    <c:forEach items="#{requestScope.monitores}" var="monitor">
                         <tr>
                             <td>#{monitor.dni}</td>
                             <td>#{monitor.nombreCompleto}</td>
@@ -41,19 +39,18 @@ and open the template in the editor.
                             <td>#{monitor.numeroSS}</td>
                             <td>#{monitor.telefono}</td>
                         </tr>
-                    </c:forEach>
                 </table>
                         </td>
                         <td width="100px">
                             <div width="100px">
                                 <p>INTRODUZCA TODOS LOS DATOS DE #{monitor.nombreCompleto} MODIFICANDO LOS QUE QUIERA </p>
                                 <form method="post" class="formLogin" action="/CeuFitSW1/modificarMonitores" align="center">
-                                    <input id="DNIoriginal" name="DNIoriginal" type="hidden" value="#{monitor.dni}"/>
-                                    <input id="DNI" name="DNI" type="text" placeholder="DNI"/>
-                                    <input id="NombreCompleto" name="NombreCompleto" type="text" placeholder="NOMBRE Y APELLIDOS"/>
-                                    <input id="Email" name="Email" type="text" placeholder="E-MAIL"/>
-                                    <input id="numeroSS" name="NumeroSS" type="text" placeholder="Numero Seguridad Social"></input>
-                                    <input id="telefono" name="Telefono" type="text" placeholder="Numero telefono"></input>
+                                    <input type="hidden" name="dniOriginal" value="#{monitor.dni}" />
+                                    <input id="DNI" name="dni" type="text" placeholder="DNI"/>
+                                    <input id="NombreCompleto" name="nombreCompleto" type="text" placeholder="NOMBRE Y APELLIDOS"/>
+                                    <input id="Email" name="email" type="text" placeholder="E-MAIL"/>
+                                    <input id="numeroSS" name="numeroSS" type="text" placeholder="Numero Seguridad Social"></input>
+                                    <input id="telefono" name="telefono" type="text" placeholder="Numero telefono"></input>
                                     <input id="Enviar" type="submit" value="VAMOS!"/>
                                 </form>
                             </div>

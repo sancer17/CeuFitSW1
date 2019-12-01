@@ -46,11 +46,11 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         HttpSession sesion = request.getSession();
         String usuario = request.getParameter("usuario");
         String query1 = null;
-        query1 = "select PASSWORD from USUARIOS where (DNI ='" + usuario + "');";
+        query1 = "select PASSWORD from usuarios where (DNI ='" + usuario + "');";
         ResultSet resultSet1 = null;
-        String query2 = "select TIPO from USUARIOS where (DNI ='" + usuario + "');";
+        String query2 = "select TIPO from usuarios where (DNI ='" + usuario + "');";
         ResultSet resultSet2 = null;
-        String query3 = "select ID_USUARIO from USUARIOS where (DNI ='" + usuario + "');";
+        String query3 = "select ID_USUARIO from usuarios where (DNI ='" + usuario + "');";
         ResultSet resultSet3 = null;
         Statement statement = null;
         Connection connection = null;

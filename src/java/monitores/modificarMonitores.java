@@ -84,7 +84,22 @@ public class modificarMonitores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            ServletContext contexto = request.getServletContext();
+            String dni = request.getParameter("dni");
+            String nombre = request.getParameter("nombreCompleto");
+            String email = request.getParameter("email");
+            String numeroSS = request.getParameter("numeroSS");
+            String telefono = request.getParameter("telefono");
+            
+            Monitor monitor = new Monitor(Integer.parseInt(dni), nombre, email, telefono, numeroSS);
+            
+            request.setAttribute("monitor", monitor);
+           
 
+            RequestDispatcher mostrarClases = contexto.getRequestDispatcher("/modificarMonitor.xhtml");
+            mostrarClases.forward(request, response);  
+            
+            
     }
 
     /**
@@ -109,15 +124,15 @@ public class modificarMonitores extends HttpServlet {
 
             connection = datasource.getConnection();
             statement = connection.createStatement();
-            String DNIoriginal = request.getParameter("DNIoriginal");
-            String DNINuevo = request.getParameter("DNI");
-            String nombreNuevo = request.getParameter("NombreCompleto");
-            String emailNuevo = request.getParameter("Email");
-            String numeroSSNuevo = request.getParameter("NumeroSS");
-            String telefonoNuevo = request.getParameter("Telefono");
+            String dniOriginal = request.getParameter("dniOriginal");
+            String dni = request.getParameter("dni");
+            String nombre = request.getParameter("nombreCompleto");
+            String email = request.getParameter("email");
+            String numeroSS = request.getParameter("numeroSS");
+            String telefono = request.getParameter("telefono");
 
-            String query = "UPDATE monitores SET DNI='" + DNINuevo + "', NOMBRE='" + nombreNuevo + ", ' EMAIL='" + emailNuevo + "', TELEFONO='" + telefonoNuevo + "', NUMEROSS='" + numeroSSNuevo + "' WHERE DNI='" + DNIoriginal + "';";
-
+            String query = "UPDATE monitor SET DNI=" + dni + ", NOMBRE='" + nombre + "', EMAIL='" + email + "', TELEFONO='" + telefono + "', NUMEROSS='" + numeroSS + "' WHERE DNI=" + dniOriginal + ";";
+            System.out.println(query);
             connection = datasource.getConnection();
             statement = connection.createStatement();
             statement.executeUpdate(query);

@@ -119,8 +119,8 @@ public class mostrarClasesInicio extends HttpServlet {
             request.setAttribute("clases", clases);
             statement.close();
 
-            RequestDispatcher mostrarMonitores = contexto.getRequestDispatcher("/clases.xhtml");
-            mostrarMonitores.forward(request, response);  
+            RequestDispatcher mostrarClases = contexto.getRequestDispatcher("/clases.xhtml");
+            mostrarClases.forward(request, response);  
         } catch (SQLException | NamingException ex) {
             Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
         }
