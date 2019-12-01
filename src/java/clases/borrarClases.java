@@ -109,6 +109,12 @@ public class borrarClases extends HttpServlet {
             statement = connection.createStatement();
             statement.executeUpdate(query);
             
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Clase Borrada !');");
+            out.println("</script>");
+            
             RequestDispatcher volverAMenu = context.getRequestDispatcher("/mostrarClases");
             volverAMenu.forward(request, response);
             

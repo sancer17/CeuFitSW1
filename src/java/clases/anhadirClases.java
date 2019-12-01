@@ -115,11 +115,18 @@ public class anhadirClases extends HttpServlet {
             Connection conn = datasource.getConnection();
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(query);
+            
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Clase Añadida !');");
+            out.println("</script>");
+            
             RequestDispatcher paginaInicio
                     = contexto.getRequestDispatcher("/mostrarClases");
             paginaInicio.forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ManejadorClases.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(anhadirClases.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

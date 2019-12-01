@@ -78,12 +78,24 @@
         <servlet-class>clases.borrarClases</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>borrarMonitores</servlet-name>
+        <servlet-class>monitores.borrarMonitores</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>anhadirClases</servlet-name>
         <servlet-class>clases.anhadirClases</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>modificarClases</servlet-name>
         <servlet-class>clases.modificarClases</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarMonitores</servlet-name>
+        <servlet-class>monitores.modificarMonitores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mostrarFormularioContacto</servlet-name>
+        <servlet-class>formulario.mostrarFormularioContacto</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -163,12 +175,24 @@
         <url-pattern>/borrarClases</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>borrarMonitores</servlet-name>
+        <url-pattern>/borrarMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>anhadirClases</servlet-name>
         <url-pattern>/anhadirClases</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>modificarClases</servlet-name>
         <url-pattern>/modificarClases</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarMonitores</servlet-name>
+        <url-pattern>/modificarMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrarFormularioContacto</servlet-name>
+        <url-pattern>/mostrarFormularioContacto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
