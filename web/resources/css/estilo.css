@@ -35,6 +35,10 @@ and open the template in the editor.
     text-decoration: none;
     color: white;
 }
+.headerAdminSocio{
+    text-decoration: none;
+    color: white;
+}
 .liMenu:hover {
   background-color: grey;
 }
