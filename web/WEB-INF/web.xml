@@ -93,6 +93,10 @@
         <servlet-name>modificarMonitores</servlet-name>
         <servlet-class>monitores.modificarMonitores</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mostrarFormularioContacto</servlet-name>
+        <servlet-class>formulario.mostrarFormularioContacto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -185,6 +189,10 @@
     <servlet-mapping>
         <servlet-name>modificarMonitores</servlet-name>
         <url-pattern>/modificarMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mostrarFormularioContacto</servlet-name>
+        <url-pattern>/mostrarFormularioContacto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

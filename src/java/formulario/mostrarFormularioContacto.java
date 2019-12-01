@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monitores;
+package formulario;
 
 import clases.mostrarInformacion;
 import java.io.IOException;
@@ -24,12 +24,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import monitores.muestraMonitores;
 
 /**
  *
  * @author rootjsn
  */
-public class muestraMonitores extends HttpServlet {
+public class mostrarFormularioContacto extends HttpServlet {
+
+    
+    DataSource datasource;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,9 +45,6 @@ public class muestraMonitores extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-        DataSource datasource;
-
-    
     
     @Override
     public void init() throws ServletException {
@@ -53,12 +54,11 @@ public class muestraMonitores extends HttpServlet {
             datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
             Connection connection = datasource.getConnection();
             Statement createStatement = connection.createStatement();
-            System.out.println("Habemus Conexion!!");
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
-    
     
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -69,10 +69,10 @@ public class muestraMonitores extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet muestraMonitores</title>");            
+            out.println("<title>Servlet mostrarFormularioContacto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet muestraMonitores at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet mostraruiiiiiiiFormularioContacto at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -90,8 +90,11 @@ public class muestraMonitores extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            mostrarTodosMonitores(request, response);
-        }
+        mostrarFormulario(request, response);
+        
+        
+        
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -101,16 +104,10 @@ public class muestraMonitores extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-                mostrarTodosMonitores(request, response);
-
-        
-    
-    
+        mostrarFormulario(request, response);
     }
 
     /**
@@ -118,42 +115,42 @@ public class muestraMonitores extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
+    public void mostrarFormulario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        
+        ArrayList<Contacto> formularioContacto  = new ArrayList<>();
+        ServletContext contexto = request.getServletContext();
+        String query = "SELECT * FROM contacto;";
+        ResultSet resultSet = null;
+        Connection conn = null;
+        Statement statement = null;
+        System.out.println(query);
+        try {
+            
+             conn = datasource.getConnection();
+             statement = conn.createStatement();
+             resultSet = statement.executeQuery(query);
+            
+            while (resultSet.next()) {
+                Contacto entrada = new Contacto(resultSet.getString("ID_FORMULARIO"), resultSet.getString("NOMBRE"),
+                    resultSet.getString("EMAIL"), resultSet.getString("MENSAJE"));
+                formularioContacto.add(entrada);
+                System.out.println("Entrada: " + entrada);
+            }
+            conn.close();
+            request.setAttribute("formularioContacto", formularioContacto);
+            RequestDispatcher mostrarFormulario = contexto.getRequestDispatcher("/mostrarFormularioAdmin.xhtml");
+            mostrarFormulario.forward(request, response);        
+        } catch (SQLException ex) {
+            Logger.getLogger(mostrarFormularioContacto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
-    public void mostrarTodosMonitores(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-                
-        ArrayList<Monitor> monitores  = new ArrayList<>();
-        ServletContext contexto = request.getServletContext();
-        String query = "SELECT * FROM monitor;";
-        ResultSet resultSet = null;
-        Connection connection = null;
-        Statement statement = null;
-        System.out.println(query);
-        try {
-            InitialContext initialContext = new InitialContext();
-            
-            System.out.println(query);
-             connection = datasource.getConnection();
-             statement = connection.createStatement();
-             resultSet = statement.executeQuery(query);
-            
-            while (resultSet.next()) {
-                Monitor monitor = new Monitor(Integer.parseInt(resultSet.getString("DNI")), resultSet.getString("nombre"),
-                    resultSet.getString("Email"), resultSet.getString("numeroSS"), resultSet.getString("telefono"));
-                monitores.add(monitor);
-                System.out.println("Monitor: " + monitor);
-            }
-            connection.close();
-            
-            request.setAttribute("monitores", monitores);
-            RequestDispatcher mostrarMonitores = contexto.getRequestDispatcher("/monitoresAdmin.xhtml");
-            mostrarMonitores.forward(request, response);        
-        } catch (SQLException | NamingException ex) {
-            Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-}   
+}
