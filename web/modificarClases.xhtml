@@ -19,43 +19,43 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                
-                <p> #{requestScope.clasesAdmin.xhtml}</p>
+
+                <p> #{requestScope.modificarClases}</p>
                 <table>
                     <tr>
                         <td>
-                <table class="tablasMostrarObjetos">
-                    <tr id="cabeceraTablaMostrarObjetos">
-                        <th>CLASE</th>
-                        <th>HORARIO</th>
-                        <th>MONITOR</th>
-                        <th>DESCRIPCIÓN</th>
-                        <th>ACCIÓN</th>
-                    </tr>
-                    <c:forEach items="#{requestScope.ArrayClases}" var="clase">
-                        <tr>
-                            <td>#{clase.clase}</td>
-                            <td>#{clase.horario}</td>
-                            <td>#{clase.monitor}</td>
-                            <td>#{clase.descripcion}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
+                            <table class="tablasMostrarObjetos">
+                                <tr id="cabeceraTablaMostrarObjetos">
+                                    <th>CLASE</th>
+                                    <th>HORARIO</th>
+                                    <th>MONITOR</th>
+                                    <th>DESCRIPCIÓN</th>
+                                </tr>
+                                <p>Esta editando la clase <b>#{claseAEditar.clase}</b></p>
+                                <tr>
+                                    <td>#{claseAEditar.clase}</td>
+                                    <td>#{claseAEditar.horario}</td>
+                                    <td>#{claseAEditar.monitor}</td>
+                                    <td>#{claseAEditar.descripcion}</td>
+                                </tr>
+
+                            </table>
                         </td>
                         <td width="100px">
                             <div width="100px">
-                                <p>INTRODUZCA TODOS LOS DATOS DE #{clase.clase} MODIFICANDO LOS QUE QUIERA </p>
+                                <p>INTRODUZCA TODOS LOS DATOS DE <b>#{claseAEditar.clase}</b> MODIFICANDO LOS QUE QUIERA </p>
                                 <form method="post" class="formLogin" action="/CeuFitSW1/modificarClases" align="center">
-                                    <input id="claseOriginal" name="claseOriginal" type="hidden" value="#{clase.clase}"/>
+                                    <input id="claseOriginal" name="claseOriginal" type="hidden" value="#{claseAEditar.clase}"/>
                                     <input id="clase" name="clase" type="text" placeholder="clase"/>
                                     <input id="horario" name="horario" type="text" placeholder="horario"/>
+                                    <input id="monitor" name="monitor" type="text" placeholder="monitor"/>
                                     <input id="descripcion" name="descripcion" type="text" placeholder="descripcion"/>
                                     <input id="Enviar" type="submit" value="VAMOS!"/>
                                 </form>
                             </div>
                         </td>
                     </tr>
-                    
+
                 </table>
             </ui:define>
 

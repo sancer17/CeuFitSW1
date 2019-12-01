@@ -30,6 +30,21 @@ import monitores.muestraMonitores;
 public class modificarClases extends HttpServlet {
 
     DataSource datasource;
+
+    
+    @Override
+    public void init() throws ServletException {
+
+        try {
+            InitialContext initialContext = new InitialContext();
+            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
+            Connection connection = datasource.getConnection();
+            Statement createStatement = connection.createStatement();
+            System.out.println("Habemus Conexion!!");
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,7 +62,7 @@ public class modificarClases extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet modificarClases</title>");            
+            out.println("<title>Servlet modificarClases</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet modificarClases at " + request.getContextPath() + "</h1>");
@@ -68,7 +83,19 @@ public class modificarClases extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        ServletContext contexto = request.getServletContext();
+
+        String clase = request.getParameter("clase");
+        String horario = request.getParameter("horario");
+        String monitor = request.getParameter("monitor");
+        String descripcion = request.getParameter("descripcion");
+
+        Clase claseAEditar = new Clase(clase, descripcion, horario, monitor);
+        request.setAttribute("claseAEditar", claseAEditar);
+
+        RequestDispatcher volverAEditar
+                = contexto.getRequestDispatcher("/modificarClases.xhtml");
+        volverAEditar.forward(request, response);
     }
 
     /**
@@ -89,30 +116,34 @@ public class modificarClases extends HttpServlet {
         Connection connection = null;
         Statement statement = null;
         try {
-            connection = datasource.getConnection();
-            
             String claseOriginal = request.getParameter("claseOriginal");
             String claseNueva = request.getParameter("clase");
             String horario = request.getParameter("horario");
             String monitor = request.getParameter("monitor");
             String descripcion = request.getParameter("descripcion");
+            System.out.println(claseOriginal);
+            System.out.println(claseNueva);
+            System.out.println(horario);
+            System.out.println(monitor);
+            System.out.println(claseOriginal);
 
             String query = "UPDATE CLASES SET CLASE='" + claseNueva + "', "
-                    + "HORARIO='" + horario + ", ' MONITOR='" + monitor + "', "
-                    + "DESCRIPCION='" + descripcion + "' WHERE DNI='" + claseOriginal + "';";
+                    + "HORARIO='" + horario + "', MONITOR='" + monitor + "', "
+                    + "DESCRIPCION='" + descripcion + "' WHERE CLASE='" + claseOriginal + "';";
+            System.out.println(query);
+            Connection conn = datasource.getConnection();
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query);
 
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-
-            RequestDispatcher volverAInicio = context.getRequestDispatcher("/muestraClases");
-
-            volverAInicio.forward(request, response);
+            RequestDispatcher paginaInicio
+                    = context.getRequestDispatcher("/mostrarClases");
+            paginaInicio.forward(request, response);
 
         } catch (SQLException ex) {
             Logger.getLogger(muestraMonitores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Returns a short description of the servlet.
      *
