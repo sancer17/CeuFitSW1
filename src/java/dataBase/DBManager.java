@@ -128,8 +128,8 @@ public class DBManager {
         }
         return misClases;
     }
-    
-        public ArrayList mostrarClasesSinRepetir(String id_usuario) {
+
+    public ArrayList mostrarClasesSinRepetir(String id_usuario) {
 
         String query1 = "SELECT DISTINCT CLASE FROM HORARIOS WHERE "
                 + "(ID_HORARIO IN (SELECT ID_HORARIO FROM APUNTADOS WHERE (ID_USUARIO='" + id_usuario + "')));";
@@ -150,5 +150,62 @@ public class DBManager {
         }
         return misClases;
     }
-      
+
+    public ArrayList mostrarClases() {
+
+        String query1 = "SELECT CLASE FROM CLASES";
+        ArrayList clases = new ArrayList();
+        try {
+
+            st = this.conectar().createStatement();
+            rs = st.executeQuery(query1);
+            while (rs.next()) {
+                clases.add(rs.getString("CLASE"));
+            }
+
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            this.desconectar();
+        }
+        return clases;
+
     }
+
+    public String mostrarDescripcion(String clase) {
+
+        String descripcion = null;
+        try {
+            String query1 = "select DESCRIPCION from CLASES where (CLASE ='" + clase + "');";
+            st = this.conectar().createStatement();
+            rs = st.executeQuery(query1);
+        } catch (SQLException | NamingException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            this.desconectar();
+        }
+        return descripcion;
+    }
+
+    public ArrayList mostrarComentarios(String clase) {
+
+        String query1 = "select COMENTARIO from COMENTARIOS where (CLASE ='" + clase + "');";
+        ArrayList comentarios = new ArrayList();
+        try {
+
+            st = this.conectar().createStatement();
+            rs = st.executeQuery(query1);
+            while (rs.next()) {
+                comentarios.add(rs.getString("COMENTARIO"));
+            }
+
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            this.desconectar();
+        }
+        return comentarios;
+
+    }
+
+}

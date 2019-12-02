@@ -27,63 +27,6 @@ public class MostrarMisClases extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-//        ServletContext contexto = request.getServletContext();
-//        HttpSession sesion = request.getSession();
-//        String query1 = "SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "');";
-//        System.out.println(query1);
-//        ResultSet resultSet1 = null;
-//        ResultSet resultSet2 = null;
-//        Statement statement = null;
-//        Connection connection = null;
-//
-//        try {
-//            connection = datasource.getConnection();
-//            statement = connection.createStatement();
-//            resultSet1 = statement.executeQuery(query1);
-//            ArrayList arrayMisClases = new ArrayList();
-//            while (resultSet1.next()) {
-//                String id_clase = resultSet1.getString(1);
-//                String query2 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE (ID_CLASE='" + id_clase + "');";
-//                resultSet2 = statement.executeQuery(query2);
-//                TablaDeClases clases = new TablaDeClases();
-//                while (resultSet2.next()) {
-//                    clases.setClase(resultSet2.getString("CLASE"));
-//                    clases.setHorario(resultSet2.getString("HORARIO"));
-//                    clases.setMonitor(resultSet2.getString("MONITOR"));
-//                    arrayMisClases.add(clases);
-//                }
-//        ServletContext contexto = request.getServletContext();
-//        HttpSession sesion = request.getSession();
-//        String query1 = "SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "');";
-//        System.out.println(query1);
-//        ResultSet resultSet1 = null;
-//        Statement statement = null;
-//        Connection connection = null;
-//        ArrayList id_clases = new ArrayList();
-//        ArrayList misClases = new ArrayList();
-//
-//        try {
-//            connection = datasource.getConnection();
-//            statement = connection.createStatement();
-//            resultSet1 = statement.executeQuery(query1);
-//            while (resultSet1.next()) {
-//                id_clases.add(resultSet1.getString("ID_CLASE"));
-//            }
-//            int i;
-//            for (i = 0; i < id_clases.size(); i++) {
-//                String query2 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE (ID_CLASE='" + id_clases.get(i) + "');";
-//                ResultSet resultSet2 = null;
-//                resultSet2 = statement.executeQuery(query2);
-//                resultSet2.next();
-//                TablaDeClases clases = new TablaDeClases();
-//
-//                clases.setClase(resultSet2.getString("CLASE"));
-//                clases.setHorario(resultSet2.getString("HORARIO"));
-//                clases.setMonitor(resultSet2.getString("MONITOR"));
-//                misClases.add(clases);
-//
-//            }
 
         ServletContext contexto = request.getServletContext();
         HttpSession sesion = request.getSession();

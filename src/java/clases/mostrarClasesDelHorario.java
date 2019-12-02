@@ -7,24 +7,18 @@ package clases;
 
 import dataBase.DBManager;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 /**
  *
@@ -35,43 +29,6 @@ public class mostrarClasesDelHorario extends HttpServlet {
 //    DataSource datasource;
     DBManager db = new DBManager();
 
-//    /**
-//     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-//     * methods.
-//     *
-//     * @param config
-//     * @throws ServletException if a servlet-specific error occurs
-//     */
-//    @Override
-//    public void init(ServletConfig config) throws ServletException {
-//
-//        try {
-//            InitialContext initialContext = new InitialContext();
-//            datasource = (DataSource) initialContext.lookup(config.getServletContext().getInitParameter("datasource"));
-//            Connection connection = datasource.getConnection();
-//            Statement createStatement = connection.createStatement();
-//        } catch (NamingException | SQLException ex) {
-//            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//    }
-
-//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet mostrarClasesDelHorario</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet mostrarClasesDelHorario at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
-//    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -81,66 +38,7 @@ public class mostrarClasesDelHorario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-////        processRequest(request, response);
-//        ServletContext contexto = request.getServletContext();
-//        HttpSession sesion = request.getSession();
-////        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES;";
-//        String query = "SELECT CLASE, HORARIO, MONITOR, ID_CLASE FROM CLASES WHERE (ID_CLASE NOT IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO=' " + sesion.getAttribute("id_usuario") + "')));";
-//        ResultSet resultSet = null;
-//        Statement statement = null;
-//        Connection connection = null;
-//
-//        try {
-//            connection = datasource.getConnection();
-//            statement = connection.createStatement();
-//            resultSet = statement.executeQuery(query);
-//            ArrayList arrayClases = new ArrayList();
-//
-//            while (resultSet.next()) {
-//                TablaDeClases clases = new TablaDeClases();
-//                clases.setClase(resultSet.getString("CLASE"));
-//                clases.setHorario(resultSet.getString("HORARIO"));
-//                clases.setMonitor(resultSet.getString("MONITOR"));
-//                clases.setId_clase(resultSet.getString("ID_CLASE"));
-//                arrayClases.add(clases);
-//            }
-//
-//            request.setAttribute("TablaDeClases", arrayClases);
-//            RequestDispatcher rd = contexto.getRequestDispatcher("/clasesSocio.xhtml");
-//            rd.forward(request, response);
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-//                    "Falló la consulta", ex);
-//        } finally {
-//            if (resultSet != null) {
-//                try {
-//                    resultSet.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-//                            "No se pudo cerrar el Resulset", ex);
-//                }
-//            }
-//            if (statement != null) {
-//                try {
-//                    statement.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//            if (connection != null) {
-//                try {
-//                    connection.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//
-//        }
-//    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
