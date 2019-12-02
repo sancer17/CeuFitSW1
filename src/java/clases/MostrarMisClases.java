@@ -5,16 +5,9 @@
  */
 package clases;
 
+import dataBase.DBManager;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -22,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 /**
  *
@@ -30,23 +22,7 @@ import javax.sql.DataSource;
  */
 public class MostrarMisClases extends HttpServlet {
 
-    DataSource datasource;
-    private final Statement statement = null;
-    private final Connection connection = null;
-
-    @Override
-    public void init() throws ServletException {
-
-        try {
-            InitialContext initialContext = new InitialContext();
-            datasource = (DataSource) initialContext.lookup("jdbc/CEUFIT01");
-            Connection connection = datasource.getConnection();
-            Statement createStatement = connection.createStatement();
-        } catch (NamingException | SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+    DBManager db = new DBManager();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -111,79 +87,17 @@ public class MostrarMisClases extends HttpServlet {
 
         ServletContext contexto = request.getServletContext();
         HttpSession sesion = request.getSession();
-        String query1 = "SELECT CLASE, HORARIO, MONITOR FROM CLASES WHERE "
-                + "(ID_CLASE IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "')));";
-        String query2 = "SELECT DISTINCT CLASE FROM CLASES WHERE "
-                + "(ID_CLASE IN (SELECT ID_CLASE FROM APUNTADOS WHERE (ID_USUARIO='" + sesion.getAttribute("id_usuario") + "')));";
-        System.out.println(query1);
-        ResultSet resultSet1 = null;
-        ResultSet rs = null;
-        Statement statement = null;
-        Connection connection = null;
-        ArrayList misClases = new ArrayList();
-        ArrayList clasesSinRepetir = new ArrayList();
+        String id_usuario = (String) sesion.getAttribute("id_usuario");
 
-        try {
-            connection = datasource.getConnection();
-            statement = connection.createStatement();
-            resultSet1 = statement.executeQuery(query1);
-            while (resultSet1.next()) {
-                TablaDeClases clases = new TablaDeClases();
-                clases.setClase(resultSet1.getString("CLASE"));
-                clases.setHorario(resultSet1.getString("HORARIO"));
-                clases.setMonitor(resultSet1.getString("MONITOR"));
-                misClases.add(clases);
-            }
+        ArrayList misClases = db.mostrarMisClases(id_usuario);
+        request.setAttribute("MisClases", misClases);
 
-            request.setAttribute("MisClases", misClases);
+        ArrayList clasesSinRepetir = db.mostrarClasesSinRepetir(id_usuario);
+        request.setAttribute("clasesSinRepetir", clasesSinRepetir);
 
-            rs = statement.executeQuery(query2);
-            while (rs.next()) {
-                TablaDeClases clases = new TablaDeClases();
-                clases.setClase("CLASE");
-                clasesSinRepetir.add(clases);
-            }
-            request.setAttribute("clasesSinRepetir", clasesSinRepetir);
+        RequestDispatcher rd = contexto.getRequestDispatcher("/horariosSocio.xhtml");
+        rd.forward(request, response);
 
-            RequestDispatcher rd = contexto.getRequestDispatcher("/horariosSocio.xhtml");
-            rd.forward(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-                    "Falló la consulta", ex);
-        } finally {
-            if (resultSet1 != null) {
-                try {
-                    resultSet1.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-                            "No se pudo cerrar el Resulset", ex);
-                }
-            }
-//            if (resultSet2 != null) {
-//                try {
-//                    resultSet2.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE,
-//                            "No se pudo cerrar el Resulset", ex);
-//                }
-//            }
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-        }
     }
 
     /**
@@ -209,19 +123,23 @@ public class MostrarMisClases extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    @Override
-    public void destroy() {
-        try {
-            statement.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(mostrarInformacion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+//    @Override
+//    public void destroy() {
+//        try {
+//            statement.close();
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(mostrarInformacion.class
+//                    .getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                connection.close();
+//
+//            } catch (SQLException ex) {
+//                Logger.getLogger(mostrarInformacion.class
+//                        .getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
 
 }

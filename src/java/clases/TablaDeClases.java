@@ -14,7 +14,7 @@ public class TablaDeClases {
     private String clase = null;
     private String horario = null;
     private String monitor = null;
-    private String id_clase = null;
+    private String id_horario = null;
 
     public TablaDeClases() {
     }
@@ -62,17 +62,19 @@ public class TablaDeClases {
     }
 
     /**
-     * @return the id_clase
+     * @return the id_horario
      */
-    public String getId_clase() {
-        return id_clase;
+    public String getId_horario() {
+        return id_horario;
     }
 
     /**
-     * @param id_clase the id_clase to set
+     * @param id_horario the id_horario to set
      */
-    public void setId_clase(String id_clase) {
-        this.id_clase = id_clase;
+    public void setId_horario(String id_horario) {
+        this.id_horario = id_horario;
     }
+
+
 
 }

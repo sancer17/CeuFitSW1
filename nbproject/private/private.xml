@@ -6,7 +6,6 @@
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/sociosAdmin.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/MostrarMisClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/nbproject/build-impl.xml</file>
-            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/ClasesBean.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/registro.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/horariosSocio.xhtml</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/mostrarClasesDelHorario.java</file>
@@ -35,6 +34,7 @@
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/monitores/Monitor.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/dataBase/DBManager.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/web/plantillas/templateVistaSocios.xhtml</file>
+            <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/mostrarClases.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/clases/ApuntarseClase.java</file>
             <file>file:/Users/enrique/NetBeansProjects/CeuFitSW1/src/java/login/ListenerSesion.java</file>
         </group>
