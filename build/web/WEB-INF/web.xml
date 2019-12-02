@@ -96,6 +96,22 @@
     <servlet>
         <servlet-name>mostrarFormularioContacto</servlet-name>
         <servlet-class>formulario.mostrarFormularioContacto</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>MostrarMaquinas</servlet-name>
+        <servlet-class>maquinas.MostrarMaquinas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AnadirMaquina</servlet-name>
+        <servlet-class>maquinas.AnadirMaquina</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BorrarMaquina</servlet-name>
+        <servlet-class>maquinas.BorrarMaquina</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarMaquina</servlet-name>
+        <servlet-class>maquinas.ModificarMaquina</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -201,6 +217,22 @@
     <servlet-mapping>
         <servlet-name>mostrarClasesInicio</servlet-name>
         <url-pattern>/mostrarClasesInicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarMaquinas</servlet-name>
+        <url-pattern>/MostrarMaquinas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnadirMaquina</servlet-name>
+        <url-pattern>/AnadirMaquina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarMaquina</servlet-name>
+        <url-pattern>/BorrarMaquina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarMaquina</servlet-name>
+        <url-pattern>/ModificarMaquina</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
