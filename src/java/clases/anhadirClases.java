@@ -108,8 +108,8 @@ public class anhadirClases extends HttpServlet {
             System.out.println(horario);
             System.out.println(monitor);
 
-            String query = "INSERT INTO CLASES VALUES('" + clase + "', '" + descripcion
-                    + "', '" + horario + "', '" + monitor + "');";
+            String query = "INSERT INTO CLASES (CLASE,HORARIO,MONITOR,DESCRIPCION) VALUES('" + clase + "', '" + horario
+                    + "', '" + monitor + "', '" + descripcion + "');";
             System.out.println(query);
 
             Connection conn = datasource.getConnection();

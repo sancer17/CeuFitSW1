@@ -194,6 +194,14 @@
         <servlet-name>mostrarFormularioContacto</servlet-name>
         <url-pattern>/mostrarFormularioContacto</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>mostrarClasesInicio</servlet-name>
+        <servlet-class>clases.mostrarClasesInicio</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mostrarClasesInicio</servlet-name>
+        <url-pattern>/mostrarClasesInicio</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
