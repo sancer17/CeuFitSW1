@@ -236,7 +236,7 @@ public class DBManager {
     public int ocupacionClases(String clase) {
 
         int ocupacion = 0;
-        String query = "SELECT COUNT(ID_HORARIO) FROM APUNTADOS WHERE (ID_USUARIO IN (SELECT ID_USUARIO FROM HORARIOS WHERE (CLASE = '" + clase + "')));";
+        String query = "SELECT COUNT(ID_HORARIO) FROM APUNTADOS WHERE (ID_HORARIO IN (SELECT ID_HORARIO FROM HORARIOS WHERE (CLASE = '" + clase + "')));";
         Statement st = null;
         ResultSet rs = null;
         Connection conn = null;
