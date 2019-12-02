@@ -148,10 +148,12 @@ public class mostrarClasesDelHorario extends HttpServlet {
         try {
             ServletContext contexto = request.getServletContext();
             HttpSession sesion = request.getSession();
-            db.verClasesParaApuntarse();
+            String id_usuario = (String) sesion.getAttribute("id_usuario");
+            ArrayList arrayClases = db.verClasesParaApuntarse(id_usuario);
+            request.setAttribute("TablaDeClases", arrayClases);
             RequestDispatcher rd = contexto.getRequestDispatcher("/clasesSocio.xhtml");
             rd.forward(request, response);
-        } catch (NamingException ex) {
+        } catch (NamingException | SQLException ex) {
             Logger.getLogger(mostrarClasesDelHorario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
