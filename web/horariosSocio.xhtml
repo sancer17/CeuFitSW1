@@ -17,7 +17,7 @@ and open the template in the editor.
 
             <ui:define name="content">
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <table class="misClases">
+                <table class="tablasMostrarObjetos">
                     <tr>
                         <td>Clase</td>
                         <td>Horario</td>
@@ -40,7 +40,7 @@ and open the template in the editor.
                 <h>Danos tu opinión sobre las clases a las que has asistido</h>
 
                 <form  method="post" action="/CeuFitSW1/MostrarMisClases" id="formLogin" name="datos">
-                    <select name="clase">
+                    <select name="tablasMostrarObjetos">
                         <c:forEach items="#{requestScope.MisClases}" var="entry">
                             <option value="#{entry.clase}">#{entry.clase}</option>
                         </c:forEach>
