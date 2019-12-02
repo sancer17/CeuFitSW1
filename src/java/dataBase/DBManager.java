@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import maquinas.Maquina;
 
 /**
  *
@@ -253,5 +254,90 @@ public class DBManager {
         }
         return ocupacion;
     }
+
+    public ArrayList mostrarMaquinas() {
+
+        String query1 = "SELECT MAQUINA, CANTIDAD FROM MAQUINAS";
+        Statement st = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        ArrayList maquinasList = new ArrayList();
+        try {
+            conn = this.conectar();
+            st = conn.createStatement();
+            rs = st.executeQuery(query1);
+            while (rs.next()) {
+                Maquina maquinas = new Maquina();
+                maquinas.setMaquina(rs.getString("MAQUINA"));
+                maquinas.setCantidad(rs.getInt("CANTIDAD"));
+                maquinasList.add(maquinas);
+            }
+
+        } catch (NamingException | SQLException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            this.desconectar(conn, rs, st);
+        }
+        return maquinasList;
+
+    }
+
+    public void annadirMaquina(String maquina, int cantidad) {
+
+        String query = "INSERT INTO MAQUINAS(MAQUINA, CANTIDAD) VALUE('" + maquina + "', '" + cantidad + "');";
+        Statement st = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        try {
+            conn = this.conectar();
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException | NamingException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            this.desconectar(conn, rs, st);
+        }
+
+    }
+
+    public void borrarMaquina(String maquina) {
+
+        String query = "DELETE FROM MAQUINAS WHERE MAQUINA='" + maquina + "';";
+        Statement st = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        try {
+            conn = this.conectar();
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException | NamingException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            this.desconectar(conn, rs, st);
+        }
+
+    }
+    
+        public void modificarMaquina(String maquina, int cantidad) {
+
+        String query = "UPDATE MAQUINAS SET MAQUINA =" + maquina + ", CANTIDAD='" + cantidad + "';";
+        Statement st = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        try {
+            conn = this.conectar();
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException | NamingException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            this.desconectar(conn, rs, st);
+        }
+
+    }
+    
 
 }
