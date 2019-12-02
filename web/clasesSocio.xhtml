@@ -20,6 +20,7 @@
                         <td>Clase</td>
                         <td>Horario</td>
                         <td>Monitor</td>
+                        <td>Apuntados</td>
                     </tr>
                     <ul>
                         <c:forEach items="#{requestScope.TablaDeClases}" var="entry">
@@ -27,6 +28,7 @@
                                 <td>#{entry.clase}</td>
                                 <td>#{entry.horario}</td>
                                 <td>#{entry.monitor}</td>
+                                <td>#{entry.ocupacion}</td>
                                 <td> 
                                     <form method="get" action="/CeuFitSW1/ApuntarseClase" name="clases">
                                         <input id="id_horario" name="id_horario" type="hidden" value="#{entry.id_horario}"></input>

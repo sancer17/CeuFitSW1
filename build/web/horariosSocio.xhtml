@@ -22,6 +22,7 @@ and open the template in the editor.
                         <td>Clase</td>
                         <td>Horario</td>
                         <td>Monitor</td>
+                        <td>Apuntados</td>
                     </tr>
                     <ul>
                         <c:forEach items="#{requestScope.MisClases}" var="entry">
@@ -29,6 +30,7 @@ and open the template in the editor.
                                 <td>#{entry.clase}</td>
                                 <td>#{entry.horario}</td>
                                 <td>#{entry.monitor}</td>
+                                <td>#{entry.ocupacion}</td>
                             </tr>
                         </c:forEach>
                     </ul>

@@ -15,6 +15,7 @@ public class TablaDeClases {
     private String horario = null;
     private String monitor = null;
     private String id_horario = null;
+    private int ocupacion = 0;
 
     public TablaDeClases() {
     }
@@ -73,6 +74,20 @@ public class TablaDeClases {
      */
     public void setId_horario(String id_horario) {
         this.id_horario = id_horario;
+    }
+
+    /**
+     * @return the ocupacion
+     */
+    public int getOcupacion() {
+        return ocupacion;
+    }
+
+    /**
+     * @param ocupacion the ocupacion to set
+     */
+    public void setOcupacion(int ocupacion) {
+        this.ocupacion = ocupacion;
     }
 
 
